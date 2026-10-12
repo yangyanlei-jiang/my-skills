@@ -54,3 +54,18 @@
 2026-10-12 增加技术方案必要交付要求。独立执行者使用虚构的 SQLite 3 项目资料和明确的 `ok/payload/error` 响应契约，编写新增幂等记录表及查询接口方案：[正文](artifacts/technical/draft.md)、[DDL](artifacts/technical/create.sql)、[响应示例](artifacts/technical/responses.json)、[原生操作计划](artifacts/technical/plan.md)。
 
 结果包含完整 CREATE TABLE、成功与未找到响应，并选择 SQL/JSON 原生代码块；响应未套用其他封装。主执行者核对正文与独立产物完全一致，在 SQLite 内存数据库执行 DDL 和有效插入，并确认唯一约束、状态约束、非空约束拒绝非法记录。此验证不涉及真实项目数据库、接口实测或飞书写入；示例中的 SQLite 与响应结构不作为技能的默认规范。
+
+## 补充验证：Markdown 优先与局部原生补齐
+
+2026-10-12 将默认流程改为先生成飞书兼容 Markdown，再批量转换，仅在最后处理当前转换链路未支持的原生格式。新增离线 `.md` 交付入口，保留技术方案和简约输出要求。
+
+依据飞书官方 CLI 当前的 Markdown/XML 格式参考，区分通用 Markdown、允许原生 XML 扩展的飞书 Markdown，以及编辑器快捷语法；明确普通 `.md` 上传不等于原生文档。检查时本机未安装飞书 CLI，未实际执行云端转换。
+
+独立基线使用更新前 `085ed88` 中的技能快照，并得到明确的批量转换能力说明：[Markdown](artifacts/md-baseline/draft.md)、[计划](artifacts/md-baseline/plan.md)。基线已经选择批量转换并只用浏览器补下划线、高亮块，没有观察到该场景下逐段重排的失败。因此不据此声称修复了已复现故障或测得性能提升。
+
+更新后两个离线场景：
+
+- 支持飞书原生扩展：[Markdown](artifacts/md-guided/A/draft.md)、[计划](artifacts/md-guided/A/plan.md)。下划线和高亮块在 Markdown 中直接表达，批量转换后结构读回验收，不预设浏览器操作。
+- 只支持基础 Markdown：[Markdown](artifacts/md-guided/B/draft.md)、[计划](artifacts/md-guided/B/plan.md)。完整生成标题、列表、3×3 表格和 Python 围栏；批量转换后仅用浏览器补两项原生格式，不重建已有表格。
+
+主执行者读取并核对全部产物，确认要求和数据保留、操作说明未混入正式正文、计划未宣称真实写入。XML 扩展片段的本地解析、技能清单、UI 配置与引用路径检查通过。以上是内容与操作计划验证，未验证真实工具的转换保真、浏览器执行或耗时。

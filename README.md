@@ -7,7 +7,7 @@
 | 技能 | 用途 | 状态 |
 | --- | --- | --- |
 | [skill-rover](skills/skill-rover/SKILL.md) | 自动选择技能，并跟踪使用与定时复评 | 从原 SkillRover 仓库迁入，保留历史和测试 |
-| [feishu-docs](skills/feishu-docs/SKILL.md) | 创建或编辑飞书原生文档，使用富文本表格、标题、列表、高亮块和代码块 | 已完成指引与离线场景验证；需要可用的飞书连接器或浏览器 |
+| [feishu-docs](skills/feishu-docs/SKILL.md) | 先生成飞书兼容 Markdown，批量写入后仅补齐缺失的原生格式 | 可离线生成 `.md`；云端写入需要已授权的转换能力 |
 
 ## 使用方式
 
@@ -22,7 +22,7 @@ cd my-skills
 
 示例请求：
 
-> 使用 feishu-docs，把这份上线方案写入飞书文档。使用分级标题、风险高亮块和原生富文本表格；完成后给我链接并核对格式。
+> 使用 feishu-docs，先生成飞书格式的上线方案 Markdown，再批量写入飞书文档；只补齐无法转换的原生格式，完成后给我链接。
 
 `feishu-docs` 已提炼用户指定的 [《如何写好飞书文档？》](https://www.feishu.cn/hc/zh-CN/articles/360049067898-%E5%A6%82%E4%BD%95%E5%86%99%E5%A5%BD%E9%A3%9E%E4%B9%A6%E6%96%87%E6%A1%A3)，写作原则见 [来源与摘要](skills/feishu-docs/references/writing-principles.md)。
 

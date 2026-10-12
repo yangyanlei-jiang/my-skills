@@ -1,6 +1,6 @@
 interface:
   display_name: "飞书文档编写"
-  short_description: "使用原生标题、富文本表格、高亮块和代码块创建或编辑飞书文档"
-  default_prompt: "使用 $feishu-docs 创建或编辑飞书文档，使用原生富文本表格并检查格式。"
+  short_description: "先生成飞书兼容 Markdown，再批量写入并补齐缺失的原生格式"
+  default_prompt: "使用 $feishu-docs 先生成飞书兼容 Markdown，按需批量写入，仅补齐不支持的原生格式。"
 policy:
   allow_implicit_invocation: true
