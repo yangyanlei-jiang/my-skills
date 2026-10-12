@@ -26,7 +26,7 @@ cd my-skills
 
 `feishu-docs` 已提炼用户指定的 [《如何写好飞书文档？》](https://www.feishu.cn/hc/zh-CN/articles/360049067898-%E5%A6%82%E4%BD%95%E5%86%99%E5%A5%BD%E9%A3%9E%E4%B9%A6%E6%96%87%E6%A1%A3)，写作原则见 [来源与摘要](skills/feishu-docs/references/writing-principles.md)。
 
-技术方案包含用户指定的 [接口与新增数据表格式](skills/feishu-docs/references/technical-format.md)：接口按基本信息、字段表与 JSON 示例组织，新增表直接给完整 SQL；实际契约遵循当前项目。新建富文本表格使用 [2.2 样式](skills/feishu-docs/references/native-format.md)，并统一铺满正文宽度。
+技术方案包含用户指定的 [接口与新增数据表格式](skills/feishu-docs/references/technical-format.md)：接口按基本信息、入参表、字段表与 JSON 示例组织，新增表直接给完整 SQL；实际契约遵循当前项目。接口入参、返回字段及文档中的其他表格均使用 [2.2 样式](skills/feishu-docs/references/native-format.md)，统一铺满正文宽度，少量数据也不收窄。
 
 ## 维护
 
