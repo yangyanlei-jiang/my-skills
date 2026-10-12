@@ -4,6 +4,8 @@
 
 [English](README.md) · [生命周期说明](references/lifecycle.md) · [平台接入](references/integration.md)
 
+此版本在 [my-skills 集合](../../README.md) 的 `skills/skill-rover/` 中统一维护。原独立仓库保留历史版本；下面的安装从集合内的技能目录开始。
+
 SkillRover 本身是一个可安装的 Agent Skill。智能体先比较已经安装的技能，缺少能力时再搜索 GitHub，读取候选技能的实际内容，选择必要的组合并验证任务结果。
 
 可选的 Python 工具负责计时、状态记录、内容校验和旧技能退役。语义判断由宿主智能体完成，不需要另一个模型 API。
@@ -13,8 +15,7 @@ SkillRover 本身是一个可安装的 Agent Skill。智能体先比较已经安
 需要 Python 3.10+。以下命令中的项目路径替换为你的实际路径：
 
 ```bash
-git clone https://github.com/yangyanlei-jiang/skill-rover.git
-cd skill-rover
+cd /你的路径/my-skills/skills/skill-rover
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
 .venv/bin/python scripts/rover.py --state-dir /你的项目/.skill-rover integrate --project /你的项目 --host both

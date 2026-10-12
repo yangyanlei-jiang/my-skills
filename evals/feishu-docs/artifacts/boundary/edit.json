@@ -1,0 +1,14 @@
+{
+  "cell_id": "B3",
+  "runs": [
+    {
+      "text": "已",
+      "bold": true
+    },
+    {
+      "text": "完成",
+      "link": "https://example.com/check",
+      "bold": false
+    }
+  ]
+}

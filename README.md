@@ -1,108 +1,34 @@
-# SkillRover
+# my-skills
 
-**Find suitable skills. Reassess them as your work changes.**
+个人 Agent Skills 集合。后续新技能统一放在 `skills/<skill-name>/`，每个技能独立维护并按需安装。
 
-[中文](README.zh-CN.md) · [Lifecycle](references/lifecycle.md) · [Integration](references/integration.md) · [Evaluation](evals/README.md)
+| 技能 | 用途 | 状态 |
+| --- | --- | --- |
+| [skill-rover](skills/skill-rover/SKILL.md) | 自动选择技能，并跟踪使用与定时复评 | 从原 SkillRover 仓库迁入，保留历史和测试 |
+| [feishu-docs](skills/feishu-docs/SKILL.md) | 创建或编辑飞书原生文档，使用富文本表格、标题、列表、高亮块和代码块 | 已完成指引与离线场景验证；需要可用的飞书连接器或浏览器 |
 
-SkillRover is an installable **Agent Skill that helps agents choose and use other skills**. It works with Codex and Claude Code: prefer installed capabilities, inspect external candidates when needed, load only relevant instructions, and verify the task's result.
+## 使用方式
 
-Its optional Python helpers add persistent review deadlines and safe replacement of managed skills. The host agent makes semantic judgments; the helper enforces identities, ownership, integrity and active-use checks.
+将需要的技能目录安装到智能体的技能目录。Codex 通常使用 `~/.codex/skills/<skill-name>`，Claude Code 可使用 `~/.claude/skills/<skill-name>`。保留完整目录中的 `SKILL.md`、`agents/` 和引用资源；安装后按宿主要求刷新技能列表。
 
-## Quick start
+也可以让支持技能安装的智能体从当前集合的指定技能目录安装。技能只是操作指引，账号连接、API 权限和浏览器登录需要由运行环境提供。
 
-Python **3.10+** and Git are required for this setup.
+示例请求：
 
-```bash
-git clone https://github.com/yangyanlei-jiang/skill-rover.git
-cd skill-rover
-python3 -m venv .venv
-.venv/bin/python -m pip install -r requirements.txt
-.venv/bin/python scripts/rover.py integrate --project /absolute/path/to/your-project --host both
-```
+> 使用 feishu-docs，把这份上线方案写入飞书文档。使用分级标题、风险高亮块和原生富文本表格；完成后给我链接并核对格式。
 
-On Windows use `.venv\Scripts\python.exe`; creating skill symlinks requires Developer Mode or equivalent permission. Keep the cloned checkout and its virtual environment: the generated hooks refer to those paths. Windows hook commands are generated, but native Windows host execution has not been verified.
+`feishu-docs` 已提炼用户指定的 [《如何写好飞书文档？》](https://www.feishu.cn/hc/zh-CN/articles/360049067898-%E5%A6%82%E4%BD%95%E5%86%99%E5%A5%BD%E9%A3%9E%E4%B9%A6%E6%96%87%E6%A1%A3)，写作原则见 [来源与摘要](skills/feishu-docs/references/writing-principles.md)。
 
-Use `--host codex` or `--host claude` for a single host. This explicit command installs the router and appends project hooks, preserving unrelated settings. Review and trust the hooks in your host; restart the host if changes do not appear.
+## 维护
 
-**Integration defaults state to the target project's `.skill-rover`.** Other commands default to the current directory's `.skill-rover`. You can choose an explicit location:
+新增技能遵循 [AGENTS.md](AGENTS.md)，并更新此索引。SkillRover 的主维护目录为 `skills/skill-rover/`；[原独立仓库](https://github.com/yangyanlei-jiang/skill-rover) 保留历史版本。集合当前在本地整理，尚未发布 GitHub 集合仓库或更新原仓库迁移公告。
 
-```bash
-.venv/bin/python scripts/rover.py --state-dir /absolute/path/to/your-project/.skill-rover integrate --project /absolute/path/to/your-project --host both
-```
+验证记录见 [feishu-docs 评估](evals/feishu-docs/report.md)。SkillRover 检查可在 `skills/skill-rover/` 中运行：
 
-After integration, describe the task normally: “Analyze the payment flow's concurrency issues and add tests.” Prompt hooks request routing for nontrivial multi-step work, complex debugging and specialized artifacts, even with an empty managed catalog. The agent checks installed skills first and uses external discovery for missing capabilities. Reviewed, authorized selections use the enrollment bridge to start tracking. Simple tasks may use no skill. Explicit `$skill-rover` (Codex) or `/skill-rover` (Claude Code) remains a fallback.
-
-Hooks supply instructions; the host model still judges and executes the workflow. `status` exposes pending routing checks, recorded decisions and next review times. Native invocation outside the managed protocol is not counted, so an empty managed table is not proof that no skill was used.
-
-The root `SKILL.md` can also be installed with your existing Agent Skills installer. Instructions-only use does not require Python. **Timed lifecycle helpers and event hooks require the Python setup above.**
-
-## What it does
-
-- Uses task outcomes, platform constraints and real tool availability to compare skills.
-- Starts with the host's installed catalog; GitHub search discovers candidate repositories when a capability is missing.
-- Reads metadata first, then only selected instructions and resources.
-- Keeps exact source identities for same-name skills and respects explicit-only invocation.
-- Tracks managed skills across sessions and reassesses them after a configurable interval.
-- Switches only after replacement validation, then archives the old owned bundle outside the active catalog.
-- Leaves ordinary questions alone when no skill is useful.
-
-## Reassessment policy
-
-The default is **24 hours from first load**, not installation or last use. Loading the same skill again does not postpone review. An actual completed review restarts the interval. A task change or failed execution can request immediate review.
-
-24 hours is a configurable starting point, not a measured universal optimum: it avoids repeatedly searching an ecosystem during one task while revisiting long-lived integrations daily. Use `install --review-hours 168` for a stable weekly cadence, or `--review-hours 1` during active experimentation. Change these based on measured replacement benefit and review cost.
-
-Hooks check on session start, prompt submission and after tool use. **The host must be running and produce an event.** A closed host cannot wake itself; an idle deadline is processed on the next event. A reminder is not a completed evaluation. Offline discovery leaves the current skill and its review deadline intact.
-
-A currently used skill cannot be replaced. Session usage is released when the task ends, and SessionEnd releases that session's remaining usage. After a crashed session, explicitly release its id only after confirming it has ended.
-
-## Ownership and retirement
-
-Helpers manage copies under the selected state directory. They never delete source skill directories, global user installations, or SkillRover itself.
-
-Replacement validates both full-tree hashes, identity-bound evidence, successful checks and active sessions. The old bundle becomes retired in an atomic state update, then moves to the archive. Interrupted archival is retryable with `cleanup`. Archived bundles are excluded from the managed catalog.
-
-This does not erase text from a model's conversation. The agent stops following retired instructions at a safe task boundary. Native host installations outside the managed store remain under the user's control.
-
-## CLI
-
-Run `python scripts/rover.py --help`; every command emits JSON.
-
-| Command | Purpose |
-| --- | --- |
-| `scan ROOT ...` | Read bounded local metadata; report invocation policy and exact paths |
-| `search QUERY` | Search public GitHub repository candidates |
-| `fetch OWNER/REPO --ref REF --subdir PATH --output DIR` | Resolve an immutable commit and extract a skill for inspection |
-| `install DIR --reviewed` | Install an inspected, authorized owned copy |
-| `use DIR --reviewed --session SESSION --reason TEXT` | Enroll, load and record a selected skill in one operation |
-| `record-route --session SESSION --decision none\|blocked --reason TEXT` | Explain a turn without managed skill usage |
-| `load ID --session SESSION` | Return managed instructions and record usage |
-| `release --session SESSION [--id ID]` | Finish usage |
-| `due` / `status` | Read review deadlines or persisted state |
-| `mark-due ID --reason TEXT` | Request early reassessment |
-| `keep ID --reason TEXT` | Record a completed comparison retaining a skill |
-| `replace OLD NEW --evidence FILE` | Apply a verified replacement |
-| `cleanup` | Retry retiring already superseded bundles |
-| `integrate --project DIR --host HOST` | Add project skill installation and native event hooks |
-
-Place `--state-dir PATH` **before** the command and use the same absolute path throughout a project. Never pipe external candidate content into a shell.
-
-## Development and validation
-
-```bash
+```sh
 python -m pip install -r requirements.txt
 python -m unittest discover -s tests -v
 python examples/lifecycle_demo.py
 ```
 
-Tests exercise real temporary files, clock boundaries, ownership, archive handling, CLI subprocesses and hook configuration. CI covers supported Python versions on Linux and macOS. See [evaluation notes](evals/README.md) for behavioral cases and the difference between helper tests and real host runs.
-
-The project does not claim statistically proven improvement over native model selection. Initial baseline checks already handled common selection rules well. The reproducible addition is the managed lifecycle protocol and its deterministic enforcement.
-
-## Format and platform references
-
-- [Agent Skills specification](https://agentskills.io/specification)
-- [Codex skills](https://learn.chatgpt.com/docs/build-skills) and [hooks](https://learn.chatgpt.com/docs/hooks)
-- [Claude Code skills](https://code.claude.com/docs/en/skills) and [hooks](https://code.claude.com/docs/en/hooks)
-
-MIT licensed. No telemetry or external model API is included.
+本集合原创内容使用 [MIT License](LICENSE)。外部文章和产品文档的版权归其权利人；引用与归纳不改变其授权。
