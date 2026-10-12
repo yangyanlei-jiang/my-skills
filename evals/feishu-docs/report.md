@@ -41,7 +41,7 @@
 - `python -B -m unittest discover -s tests -v`：62 项测试通过。
 - `python -B examples/lifecycle_demo.py`：首次加载计时、重复加载不重置、替换与归档演示通过。
 
-尚未运行 GitHub 的 CI 矩阵。集合目前是本地 Git 仓库，没有发布远程集合或修改旧仓库迁移公告。
+首次目录迁移验收时尚未运行 GitHub 的 CI 矩阵，也尚未发布远程集合或修改旧仓库迁移公告。发布后的当前状态请查看仓库与其 Actions 记录。
 
 ## 补充验证：原生优先，简约输出
 
