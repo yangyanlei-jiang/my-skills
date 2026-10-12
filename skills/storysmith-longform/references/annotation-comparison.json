@@ -1,0 +1,2015 @@
+[
+  {
+    "work": "灵飞经",
+    "primary_file_sha256": "f223e21807ade7d2b9f9f8454a603ead83861055526ccf8b4971f3222c64d57e",
+    "secondary_file_sha256": "a32f92cef02cb83e74a9916166794e25f9e88903de19c1b22336ec3b87f3a24a",
+    "bootstrap_seed": 20261014,
+    "bootstrap_replicates": 10000,
+    "coder_identity": "independent model semantic coders; not human annotators",
+    "primary_validation_errors": [],
+    "secondary_validation_errors": [],
+    "primary_records": 507,
+    "sample_han": 21600,
+    "coverage": {
+      "figurative": 36,
+      "sensory": 36
+    },
+    "densities": {
+      "metaphor": {
+        "core_han_union": 555,
+        "denominator_han": 21600,
+        "raw_per_1000": 25.694444444444443,
+        "weighted_per_1000": 25.694444444444446,
+        "stratified_window_bootstrap_percentile_95": [
+          18.564814814814817,
+          32.73148148148148
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "simile": {
+        "core_han_union": 687,
+        "denominator_han": 21600,
+        "raw_per_1000": 31.805555555555554,
+        "weighted_per_1000": 31.80555555555556,
+        "stratified_window_bootstrap_percentile_95": [
+          21.06481481481481,
+          44.167824074074055
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "sensory_visual": {
+        "core_han_union": 930,
+        "denominator_han": 21600,
+        "raw_per_1000": 43.05555555555556,
+        "weighted_per_1000": 43.05555555555556,
+        "stratified_window_bootstrap_percentile_95": [
+          31.06481481481482,
+          56.52777777777776
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "sensory_auditory": {
+        "core_han_union": 734,
+        "denominator_han": 21600,
+        "raw_per_1000": 33.98148148148148,
+        "weighted_per_1000": 33.981481481481474,
+        "stratified_window_bootstrap_percentile_95": [
+          26.620370370370374,
+          42.222222222222214
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "sensory_touch": {
+        "core_han_union": 94,
+        "denominator_han": 21600,
+        "raw_per_1000": 4.351851851851851,
+        "weighted_per_1000": 4.351851851851851,
+        "stratified_window_bootstrap_percentile_95": [
+          1.990740740740741,
+          7.083333333333333
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "sensory_smell": {
+        "core_han_union": 23,
+        "denominator_han": 21600,
+        "raw_per_1000": 1.0648148148148149,
+        "weighted_per_1000": 1.0648148148148147,
+        "stratified_window_bootstrap_percentile_95": [
+          0.18518518518518517,
+          2.1296296296296298
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "sensory_taste": {
+        "core_han_union": 4,
+        "denominator_han": 21600,
+        "raw_per_1000": 0.18518518518518517,
+        "weighted_per_1000": 0.18518518518518517,
+        "stratified_window_bootstrap_percentile_95": [
+          0.0,
+          0.5555555555555556
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "sensory_temperature": {
+        "core_han_union": 77,
+        "denominator_han": 21600,
+        "raw_per_1000": 3.564814814814815,
+        "weighted_per_1000": 3.564814814814815,
+        "stratified_window_bootstrap_percentile_95": [
+          1.4351851851851851,
+          6.064814814814812
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "sensory_interoception": {
+        "core_han_union": 180,
+        "denominator_han": 21600,
+        "raw_per_1000": 8.333333333333334,
+        "weighted_per_1000": 8.333333333333334,
+        "stratified_window_bootstrap_percentile_95": [
+          4.12037037037037,
+          13.055555555555554
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "sensory_kinesthetic": {
+        "core_han_union": 84,
+        "denominator_han": 21600,
+        "raw_per_1000": 3.888888888888889,
+        "weighted_per_1000": 3.8888888888888884,
+        "stratified_window_bootstrap_percentile_95": [
+          1.2962962962962963,
+          7.129629629629629
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "figurative_all": {
+        "core_han_union": 1242,
+        "denominator_han": 21600,
+        "raw_per_1000": 57.5,
+        "weighted_per_1000": 57.5,
+        "stratified_window_bootstrap_percentile_95": [
+          42.407407407407405,
+          73.47337962962963
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "five_sense_union": {
+        "core_han_union": 1785,
+        "denominator_han": 21600,
+        "raw_per_1000": 82.63888888888889,
+        "weighted_per_1000": 82.63888888888887,
+        "stratified_window_bootstrap_percentile_95": [
+          68.00925925925925,
+          98.19560185185183
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "auxiliary_sense_union": {
+        "core_han_union": 306,
+        "denominator_han": 21600,
+        "raw_per_1000": 14.166666666666666,
+        "weighted_per_1000": 14.166666666666666,
+        "stratified_window_bootstrap_percentile_95": [
+          7.961805555555555,
+          21.203703703703702
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      }
+    },
+    "blind_pilot": {
+      "metaphor": {
+        "windows": 4,
+        "primary_han": 38,
+        "secondary_han": 14,
+        "intersection_han": 6,
+        "union_han": 46,
+        "f1": 0.23076923076923078,
+        "jaccard": 0.13043478260869565,
+        "per_window": [
+          {
+            "window_id": "1-00239",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00299",
+            "primary_han": 4,
+            "secondary_han": 8,
+            "intersection_han": 0,
+            "union_han": 12
+          },
+          {
+            "window_id": "2-00448",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "3-00130",
+            "primary_han": 34,
+            "secondary_han": 6,
+            "intersection_han": 6,
+            "union_han": 34
+          }
+        ]
+      },
+      "simile": {
+        "windows": 4,
+        "primary_han": 65,
+        "secondary_han": 41,
+        "intersection_han": 41,
+        "union_han": 65,
+        "f1": 0.7735849056603774,
+        "jaccard": 0.6307692307692307,
+        "per_window": [
+          {
+            "window_id": "1-00239",
+            "primary_han": 12,
+            "secondary_han": 12,
+            "intersection_han": 12,
+            "union_han": 12
+          },
+          {
+            "window_id": "2-00299",
+            "primary_han": 8,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 8
+          },
+          {
+            "window_id": "2-00448",
+            "primary_han": 6,
+            "secondary_han": 6,
+            "intersection_han": 6,
+            "union_han": 6
+          },
+          {
+            "window_id": "3-00130",
+            "primary_han": 39,
+            "secondary_han": 23,
+            "intersection_han": 23,
+            "union_han": 39
+          }
+        ]
+      },
+      "sensory_visual": {
+        "windows": 4,
+        "primary_han": 155,
+        "secondary_han": 162,
+        "intersection_han": 127,
+        "union_han": 190,
+        "f1": 0.8012618296529969,
+        "jaccard": 0.6684210526315789,
+        "per_window": [
+          {
+            "window_id": "1-00239",
+            "primary_han": 39,
+            "secondary_han": 42,
+            "intersection_han": 39,
+            "union_han": 42
+          },
+          {
+            "window_id": "2-00299",
+            "primary_han": 90,
+            "secondary_han": 98,
+            "intersection_han": 66,
+            "union_han": 122
+          },
+          {
+            "window_id": "2-00448",
+            "primary_han": 20,
+            "secondary_han": 16,
+            "intersection_han": 16,
+            "union_han": 20
+          },
+          {
+            "window_id": "3-00130",
+            "primary_han": 6,
+            "secondary_han": 6,
+            "intersection_han": 6,
+            "union_han": 6
+          }
+        ]
+      },
+      "sensory_auditory": {
+        "windows": 4,
+        "primary_han": 34,
+        "secondary_han": 53,
+        "intersection_han": 34,
+        "union_han": 53,
+        "f1": 0.7816091954022989,
+        "jaccard": 0.6415094339622641,
+        "per_window": [
+          {
+            "window_id": "1-00239",
+            "primary_han": 17,
+            "secondary_han": 30,
+            "intersection_han": 17,
+            "union_han": 30
+          },
+          {
+            "window_id": "2-00299",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00448",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "3-00130",
+            "primary_han": 17,
+            "secondary_han": 23,
+            "intersection_han": 17,
+            "union_han": 23
+          }
+        ]
+      },
+      "sensory_touch": {
+        "windows": 4,
+        "primary_han": 37,
+        "secondary_han": 27,
+        "intersection_han": 17,
+        "union_han": 47,
+        "f1": 0.53125,
+        "jaccard": 0.3617021276595745,
+        "per_window": [
+          {
+            "window_id": "1-00239",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00299",
+            "primary_han": 17,
+            "secondary_han": 11,
+            "intersection_han": 11,
+            "union_han": 17
+          },
+          {
+            "window_id": "2-00448",
+            "primary_han": 14,
+            "secondary_han": 6,
+            "intersection_han": 0,
+            "union_han": 20
+          },
+          {
+            "window_id": "3-00130",
+            "primary_han": 6,
+            "secondary_han": 10,
+            "intersection_han": 6,
+            "union_han": 10
+          }
+        ]
+      },
+      "sensory_smell": {
+        "windows": 4,
+        "primary_han": 6,
+        "secondary_han": 6,
+        "intersection_han": 6,
+        "union_han": 6,
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "per_window": [
+          {
+            "window_id": "1-00239",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00299",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00448",
+            "primary_han": 6,
+            "secondary_han": 6,
+            "intersection_han": 6,
+            "union_han": 6
+          },
+          {
+            "window_id": "3-00130",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          }
+        ]
+      },
+      "sensory_taste": {
+        "windows": 4,
+        "primary_han": 0,
+        "secondary_han": 0,
+        "intersection_han": 0,
+        "union_han": 0,
+        "f1": null,
+        "jaccard": null,
+        "per_window": [
+          {
+            "window_id": "1-00239",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00299",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00448",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "3-00130",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          }
+        ]
+      },
+      "sensory_temperature": {
+        "windows": 4,
+        "primary_han": 4,
+        "secondary_han": 13,
+        "intersection_han": 4,
+        "union_han": 13,
+        "f1": 0.47058823529411764,
+        "jaccard": 0.3076923076923077,
+        "per_window": [
+          {
+            "window_id": "1-00239",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00299",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00448",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "3-00130",
+            "primary_han": 4,
+            "secondary_han": 13,
+            "intersection_han": 4,
+            "union_han": 13
+          }
+        ]
+      },
+      "sensory_interoception": {
+        "windows": 4,
+        "primary_han": 32,
+        "secondary_han": 30,
+        "intersection_han": 24,
+        "union_han": 38,
+        "f1": 0.7741935483870968,
+        "jaccard": 0.631578947368421,
+        "per_window": [
+          {
+            "window_id": "1-00239",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00299",
+            "primary_han": 12,
+            "secondary_han": 4,
+            "intersection_han": 4,
+            "union_han": 12
+          },
+          {
+            "window_id": "2-00448",
+            "primary_han": 20,
+            "secondary_han": 26,
+            "intersection_han": 20,
+            "union_han": 26
+          },
+          {
+            "window_id": "3-00130",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          }
+        ]
+      },
+      "sensory_kinesthetic": {
+        "windows": 4,
+        "primary_han": 36,
+        "secondary_han": 8,
+        "intersection_han": 8,
+        "union_han": 36,
+        "f1": 0.36363636363636365,
+        "jaccard": 0.2222222222222222,
+        "per_window": [
+          {
+            "window_id": "1-00239",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00299",
+            "primary_han": 12,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 12
+          },
+          {
+            "window_id": "2-00448",
+            "primary_han": 8,
+            "secondary_han": 8,
+            "intersection_han": 8,
+            "union_han": 8
+          },
+          {
+            "window_id": "3-00130",
+            "primary_han": 16,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 16
+          }
+        ]
+      },
+      "figurative_all": {
+        "windows": 4,
+        "primary_han": 103,
+        "secondary_han": 55,
+        "intersection_han": 55,
+        "union_han": 103,
+        "f1": 0.6962025316455697,
+        "jaccard": 0.5339805825242718,
+        "per_window": [
+          {
+            "window_id": "1-00239",
+            "primary_han": 12,
+            "secondary_han": 12,
+            "intersection_han": 12,
+            "union_han": 12
+          },
+          {
+            "window_id": "2-00299",
+            "primary_han": 12,
+            "secondary_han": 8,
+            "intersection_han": 8,
+            "union_han": 12
+          },
+          {
+            "window_id": "2-00448",
+            "primary_han": 6,
+            "secondary_han": 6,
+            "intersection_han": 6,
+            "union_han": 6
+          },
+          {
+            "window_id": "3-00130",
+            "primary_han": 73,
+            "secondary_han": 29,
+            "intersection_han": 29,
+            "union_han": 73
+          }
+        ]
+      },
+      "five_sense_union": {
+        "windows": 4,
+        "primary_han": 232,
+        "secondary_han": 248,
+        "intersection_han": 184,
+        "union_han": 296,
+        "f1": 0.7666666666666667,
+        "jaccard": 0.6216216216216216,
+        "per_window": [
+          {
+            "window_id": "1-00239",
+            "primary_han": 56,
+            "secondary_han": 72,
+            "intersection_han": 56,
+            "union_han": 72
+          },
+          {
+            "window_id": "2-00299",
+            "primary_han": 107,
+            "secondary_han": 109,
+            "intersection_han": 77,
+            "union_han": 139
+          },
+          {
+            "window_id": "2-00448",
+            "primary_han": 40,
+            "secondary_han": 28,
+            "intersection_han": 22,
+            "union_han": 46
+          },
+          {
+            "window_id": "3-00130",
+            "primary_han": 29,
+            "secondary_han": 39,
+            "intersection_han": 29,
+            "union_han": 39
+          }
+        ]
+      },
+      "auxiliary_sense_union": {
+        "windows": 4,
+        "primary_han": 60,
+        "secondary_han": 51,
+        "intersection_han": 36,
+        "union_han": 75,
+        "f1": 0.6486486486486487,
+        "jaccard": 0.48,
+        "per_window": [
+          {
+            "window_id": "1-00239",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00299",
+            "primary_han": 12,
+            "secondary_han": 4,
+            "intersection_han": 4,
+            "union_han": 12
+          },
+          {
+            "window_id": "2-00448",
+            "primary_han": 28,
+            "secondary_han": 34,
+            "intersection_han": 28,
+            "union_han": 34
+          },
+          {
+            "window_id": "3-00130",
+            "primary_han": 20,
+            "secondary_han": 13,
+            "intersection_han": 4,
+            "union_han": 29
+          }
+        ]
+      }
+    },
+    "method": "certain-only han-codepoint sets clipped to core; union within each label; primary density per 1000 core han; overlap F1=2|A∩B|/(|A|+|B|), Jaccard=|A∩B|/|A∪B|. Neither coder is gold. Both empty -> null, not perfect. No adjudication or kappa.",
+    "uncertain_records": 8
+  },
+  {
+    "work": "十日终焉",
+    "primary_file_sha256": "aa3e6702fa101a5bbd302a7dc50cc413dd3b9ef22a6c045b1c801ac3bbb999ef",
+    "secondary_file_sha256": "a32f92cef02cb83e74a9916166794e25f9e88903de19c1b22336ec3b87f3a24a",
+    "bootstrap_seed": 20261014,
+    "bootstrap_replicates": 10000,
+    "coder_identity": "independent model semantic coders; not human annotators",
+    "primary_validation_errors": [],
+    "secondary_validation_errors": [],
+    "primary_records": 270,
+    "sample_han": 21600,
+    "coverage": {
+      "figurative": 36,
+      "sensory": 36
+    },
+    "densities": {
+      "metaphor": {
+        "core_han_union": 265,
+        "denominator_han": 21600,
+        "raw_per_1000": 12.268518518518519,
+        "weighted_per_1000": 12.268518518518517,
+        "stratified_window_bootstrap_percentile_95": [
+          6.944444444444444,
+          18.379629629629633
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "simile": {
+        "core_han_union": 126,
+        "denominator_han": 21600,
+        "raw_per_1000": 5.833333333333334,
+        "weighted_per_1000": 5.833333333333334,
+        "stratified_window_bootstrap_percentile_95": [
+          2.8240740740740744,
+          9.074074074074076
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "sensory_visual": {
+        "core_han_union": 1506,
+        "denominator_han": 21600,
+        "raw_per_1000": 69.72222222222223,
+        "weighted_per_1000": 69.72222222222223,
+        "stratified_window_bootstrap_percentile_95": [
+          56.10995370370371,
+          84.58333333333331
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "sensory_auditory": {
+        "core_han_union": 412,
+        "denominator_han": 21600,
+        "raw_per_1000": 19.074074074074073,
+        "weighted_per_1000": 19.07407407407408,
+        "stratified_window_bootstrap_percentile_95": [
+          11.2025462962963,
+          28.28703703703704
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "sensory_touch": {
+        "core_han_union": 69,
+        "denominator_han": 21600,
+        "raw_per_1000": 3.1944444444444446,
+        "weighted_per_1000": 3.1944444444444446,
+        "stratified_window_bootstrap_percentile_95": [
+          0.0,
+          7.453703703703704
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "sensory_smell": {
+        "core_han_union": 56,
+        "denominator_han": 21600,
+        "raw_per_1000": 2.5925925925925926,
+        "weighted_per_1000": 2.592592592592593,
+        "stratified_window_bootstrap_percentile_95": [
+          0.0,
+          6.203703703703704
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "sensory_taste": {
+        "core_han_union": 0,
+        "denominator_han": 21600,
+        "raw_per_1000": 0.0,
+        "weighted_per_1000": 0.0,
+        "stratified_window_bootstrap_percentile_95": null,
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "sensory_temperature": {
+        "core_han_union": 12,
+        "denominator_han": 21600,
+        "raw_per_1000": 0.5555555555555556,
+        "weighted_per_1000": 0.5555555555555556,
+        "stratified_window_bootstrap_percentile_95": [
+          0.0,
+          1.3888888888888888
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "sensory_interoception": {
+        "core_han_union": 85,
+        "denominator_han": 21600,
+        "raw_per_1000": 3.9351851851851847,
+        "weighted_per_1000": 3.9351851851851856,
+        "stratified_window_bootstrap_percentile_95": [
+          0.5555555555555556,
+          8.287037037037038
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "sensory_kinesthetic": {
+        "core_han_union": 10,
+        "denominator_han": 21600,
+        "raw_per_1000": 0.46296296296296297,
+        "weighted_per_1000": 0.46296296296296297,
+        "stratified_window_bootstrap_percentile_95": [
+          0.0,
+          1.3888888888888888
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "figurative_all": {
+        "core_han_union": 391,
+        "denominator_han": 21600,
+        "raw_per_1000": 18.10185185185185,
+        "weighted_per_1000": 18.101851851851855,
+        "stratified_window_bootstrap_percentile_95": [
+          12.175925925925927,
+          24.537037037037035
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "five_sense_union": {
+        "core_han_union": 2043,
+        "denominator_han": 21600,
+        "raw_per_1000": 94.58333333333334,
+        "weighted_per_1000": 94.58333333333334,
+        "stratified_window_bootstrap_percentile_95": [
+          77.6840277777778,
+          112.08333333333333
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "auxiliary_sense_union": {
+        "core_han_union": 107,
+        "denominator_han": 21600,
+        "raw_per_1000": 4.953703703703704,
+        "weighted_per_1000": 4.953703703703704,
+        "stratified_window_bootstrap_percentile_95": [
+          1.2037037037037037,
+          9.675925925925926
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      }
+    },
+    "blind_pilot": {
+      "metaphor": {
+        "windows": 4,
+        "primary_han": 0,
+        "secondary_han": 0,
+        "intersection_han": 0,
+        "union_han": 0,
+        "f1": null,
+        "jaccard": null,
+        "per_window": [
+          {
+            "window_id": "1-00103",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "1-00456",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00235",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "3-00703",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          }
+        ]
+      },
+      "simile": {
+        "windows": 4,
+        "primary_han": 16,
+        "secondary_han": 16,
+        "intersection_han": 16,
+        "union_han": 16,
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "per_window": [
+          {
+            "window_id": "1-00103",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "1-00456",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00235",
+            "primary_han": 16,
+            "secondary_han": 16,
+            "intersection_han": 16,
+            "union_han": 16
+          },
+          {
+            "window_id": "3-00703",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          }
+        ]
+      },
+      "sensory_visual": {
+        "windows": 4,
+        "primary_han": 149,
+        "secondary_han": 197,
+        "intersection_han": 119,
+        "union_han": 227,
+        "f1": 0.6878612716763006,
+        "jaccard": 0.5242290748898678,
+        "per_window": [
+          {
+            "window_id": "1-00103",
+            "primary_han": 68,
+            "secondary_han": 103,
+            "intersection_han": 61,
+            "union_han": 110
+          },
+          {
+            "window_id": "1-00456",
+            "primary_han": 31,
+            "secondary_han": 54,
+            "intersection_han": 18,
+            "union_han": 67
+          },
+          {
+            "window_id": "2-00235",
+            "primary_han": 18,
+            "secondary_han": 8,
+            "intersection_han": 8,
+            "union_han": 18
+          },
+          {
+            "window_id": "3-00703",
+            "primary_han": 32,
+            "secondary_han": 32,
+            "intersection_han": 32,
+            "union_han": 32
+          }
+        ]
+      },
+      "sensory_auditory": {
+        "windows": 4,
+        "primary_han": 38,
+        "secondary_han": 49,
+        "intersection_han": 27,
+        "union_han": 60,
+        "f1": 0.6206896551724138,
+        "jaccard": 0.45,
+        "per_window": [
+          {
+            "window_id": "1-00103",
+            "primary_han": 0,
+            "secondary_han": 11,
+            "intersection_han": 0,
+            "union_han": 11
+          },
+          {
+            "window_id": "1-00456",
+            "primary_han": 22,
+            "secondary_han": 33,
+            "intersection_han": 22,
+            "union_han": 33
+          },
+          {
+            "window_id": "2-00235",
+            "primary_han": 16,
+            "secondary_han": 5,
+            "intersection_han": 5,
+            "union_han": 16
+          },
+          {
+            "window_id": "3-00703",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          }
+        ]
+      },
+      "sensory_touch": {
+        "windows": 4,
+        "primary_han": 0,
+        "secondary_han": 0,
+        "intersection_han": 0,
+        "union_han": 0,
+        "f1": null,
+        "jaccard": null,
+        "per_window": [
+          {
+            "window_id": "1-00103",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "1-00456",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00235",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "3-00703",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          }
+        ]
+      },
+      "sensory_smell": {
+        "windows": 4,
+        "primary_han": 0,
+        "secondary_han": 0,
+        "intersection_han": 0,
+        "union_han": 0,
+        "f1": null,
+        "jaccard": null,
+        "per_window": [
+          {
+            "window_id": "1-00103",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "1-00456",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00235",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "3-00703",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          }
+        ]
+      },
+      "sensory_taste": {
+        "windows": 4,
+        "primary_han": 0,
+        "secondary_han": 0,
+        "intersection_han": 0,
+        "union_han": 0,
+        "f1": null,
+        "jaccard": null,
+        "per_window": [
+          {
+            "window_id": "1-00103",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "1-00456",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00235",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "3-00703",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          }
+        ]
+      },
+      "sensory_temperature": {
+        "windows": 4,
+        "primary_han": 0,
+        "secondary_han": 0,
+        "intersection_han": 0,
+        "union_han": 0,
+        "f1": null,
+        "jaccard": null,
+        "per_window": [
+          {
+            "window_id": "1-00103",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "1-00456",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00235",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "3-00703",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          }
+        ]
+      },
+      "sensory_interoception": {
+        "windows": 4,
+        "primary_han": 0,
+        "secondary_han": 0,
+        "intersection_han": 0,
+        "union_han": 0,
+        "f1": null,
+        "jaccard": null,
+        "per_window": [
+          {
+            "window_id": "1-00103",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "1-00456",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00235",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "3-00703",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          }
+        ]
+      },
+      "sensory_kinesthetic": {
+        "windows": 4,
+        "primary_han": 0,
+        "secondary_han": 0,
+        "intersection_han": 0,
+        "union_han": 0,
+        "f1": null,
+        "jaccard": null,
+        "per_window": [
+          {
+            "window_id": "1-00103",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "1-00456",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00235",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "3-00703",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          }
+        ]
+      },
+      "figurative_all": {
+        "windows": 4,
+        "primary_han": 16,
+        "secondary_han": 16,
+        "intersection_han": 16,
+        "union_han": 16,
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "per_window": [
+          {
+            "window_id": "1-00103",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "1-00456",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00235",
+            "primary_han": 16,
+            "secondary_han": 16,
+            "intersection_han": 16,
+            "union_han": 16
+          },
+          {
+            "window_id": "3-00703",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          }
+        ]
+      },
+      "five_sense_union": {
+        "windows": 4,
+        "primary_han": 187,
+        "secondary_han": 246,
+        "intersection_han": 146,
+        "union_han": 287,
+        "f1": 0.674364896073903,
+        "jaccard": 0.5087108013937283,
+        "per_window": [
+          {
+            "window_id": "1-00103",
+            "primary_han": 68,
+            "secondary_han": 114,
+            "intersection_han": 61,
+            "union_han": 121
+          },
+          {
+            "window_id": "1-00456",
+            "primary_han": 53,
+            "secondary_han": 87,
+            "intersection_han": 40,
+            "union_han": 100
+          },
+          {
+            "window_id": "2-00235",
+            "primary_han": 34,
+            "secondary_han": 13,
+            "intersection_han": 13,
+            "union_han": 34
+          },
+          {
+            "window_id": "3-00703",
+            "primary_han": 32,
+            "secondary_han": 32,
+            "intersection_han": 32,
+            "union_han": 32
+          }
+        ]
+      },
+      "auxiliary_sense_union": {
+        "windows": 4,
+        "primary_han": 0,
+        "secondary_han": 0,
+        "intersection_han": 0,
+        "union_han": 0,
+        "f1": null,
+        "jaccard": null,
+        "per_window": [
+          {
+            "window_id": "1-00103",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "1-00456",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00235",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "3-00703",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          }
+        ]
+      }
+    },
+    "method": "certain-only han-codepoint sets clipped to core; union within each label; primary density per 1000 core han; overlap F1=2|A∩B|/(|A|+|B|), Jaccard=|A∩B|/|A∪B|. Neither coder is gold. Both empty -> null, not perfect. No adjudication or kappa.",
+    "uncertain_records": 2
+  },
+  {
+    "work": "我不是戏神",
+    "primary_file_sha256": "417210de679ba4299fca2f563ac38ba921884eecc45e65cc16adfbeda919f415",
+    "secondary_file_sha256": "a32f92cef02cb83e74a9916166794e25f9e88903de19c1b22336ec3b87f3a24a",
+    "bootstrap_seed": 20261014,
+    "bootstrap_replicates": 10000,
+    "coder_identity": "independent model semantic coders; not human annotators",
+    "primary_validation_errors": [],
+    "secondary_validation_errors": [],
+    "primary_records": 491,
+    "sample_han": 21600,
+    "coverage": {
+      "figurative": 36,
+      "sensory": 36
+    },
+    "densities": {
+      "metaphor": {
+        "core_han_union": 266,
+        "denominator_han": 21600,
+        "raw_per_1000": 12.314814814814815,
+        "weighted_per_1000": 12.314814814814815,
+        "stratified_window_bootstrap_percentile_95": [
+          6.481481481481482,
+          18.796296296296298
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "simile": {
+        "core_han_union": 449,
+        "denominator_han": 21600,
+        "raw_per_1000": 20.787037037037038,
+        "weighted_per_1000": 20.787037037037035,
+        "stratified_window_bootstrap_percentile_95": [
+          15.694444444444445,
+          26.06481481481481
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "sensory_visual": {
+        "core_han_union": 2302,
+        "denominator_han": 21600,
+        "raw_per_1000": 106.57407407407408,
+        "weighted_per_1000": 106.5740740740741,
+        "stratified_window_bootstrap_percentile_95": [
+          86.24884259259258,
+          127.77893518518522
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "sensory_auditory": {
+        "core_han_union": 694,
+        "denominator_han": 21600,
+        "raw_per_1000": 32.12962962962963,
+        "weighted_per_1000": 32.12962962962963,
+        "stratified_window_bootstrap_percentile_95": [
+          24.305555555555557,
+          40.92592592592593
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "sensory_touch": {
+        "core_han_union": 22,
+        "denominator_han": 21600,
+        "raw_per_1000": 1.0185185185185184,
+        "weighted_per_1000": 1.0185185185185186,
+        "stratified_window_bootstrap_percentile_95": [
+          0.0,
+          2.2685185185185186
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "sensory_smell": {
+        "core_han_union": 7,
+        "denominator_han": 21600,
+        "raw_per_1000": 0.32407407407407407,
+        "weighted_per_1000": 0.3240740740740741,
+        "stratified_window_bootstrap_percentile_95": [
+          0.0,
+          0.9722222222222222
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "sensory_taste": {
+        "core_han_union": 10,
+        "denominator_han": 21600,
+        "raw_per_1000": 0.46296296296296297,
+        "weighted_per_1000": 0.46296296296296297,
+        "stratified_window_bootstrap_percentile_95": [
+          0.0,
+          1.3888888888888888
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "sensory_temperature": {
+        "core_han_union": 33,
+        "denominator_han": 21600,
+        "raw_per_1000": 1.527777777777778,
+        "weighted_per_1000": 1.527777777777778,
+        "stratified_window_bootstrap_percentile_95": [
+          0.2777777777777778,
+          3.1481481481481484
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "sensory_interoception": {
+        "core_han_union": 71,
+        "denominator_han": 21600,
+        "raw_per_1000": 3.287037037037037,
+        "weighted_per_1000": 3.287037037037037,
+        "stratified_window_bootstrap_percentile_95": [
+          0.925925925925926,
+          6.203703703703704
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "sensory_kinesthetic": {
+        "core_han_union": 108,
+        "denominator_han": 21600,
+        "raw_per_1000": 5.0,
+        "weighted_per_1000": 5.0,
+        "stratified_window_bootstrap_percentile_95": [
+          1.7129629629629628,
+          8.982638888888873
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "figurative_all": {
+        "core_han_union": 715,
+        "denominator_han": 21600,
+        "raw_per_1000": 33.101851851851855,
+        "weighted_per_1000": 33.10185185185185,
+        "stratified_window_bootstrap_percentile_95": [
+          26.157407407407412,
+          40.1388888888889
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "five_sense_union": {
+        "core_han_union": 3020,
+        "denominator_han": 21600,
+        "raw_per_1000": 139.8148148148148,
+        "weighted_per_1000": 139.81481481481484,
+        "stratified_window_bootstrap_percentile_95": [
+          115.87962962962963,
+          165.2789351851852
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      },
+      "auxiliary_sense_union": {
+        "core_han_union": 212,
+        "denominator_han": 21600,
+        "raw_per_1000": 9.814814814814815,
+        "weighted_per_1000": 9.814814814814817,
+        "stratified_window_bootstrap_percentile_95": [
+          4.768518518518518,
+          15.740740740740739
+        ],
+        "ci_note": "sampling variability conditional on one coder; not coding-error CI. No finite-population correction; sampling fractions are small. Zero/rare labels require caution. Not a writing target."
+      }
+    },
+    "blind_pilot": {
+      "metaphor": {
+        "windows": 4,
+        "primary_han": 33,
+        "secondary_han": 29,
+        "intersection_han": 29,
+        "union_han": 33,
+        "f1": 0.9354838709677419,
+        "jaccard": 0.8787878787878788,
+        "per_window": [
+          {
+            "window_id": "1-00141",
+            "primary_han": 18,
+            "secondary_han": 18,
+            "intersection_han": 18,
+            "union_han": 18
+          },
+          {
+            "window_id": "1-01673",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00456",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "3-01507",
+            "primary_han": 15,
+            "secondary_han": 11,
+            "intersection_han": 11,
+            "union_han": 15
+          }
+        ]
+      },
+      "simile": {
+        "windows": 4,
+        "primary_han": 53,
+        "secondary_han": 52,
+        "intersection_han": 47,
+        "union_han": 58,
+        "f1": 0.8952380952380953,
+        "jaccard": 0.8103448275862069,
+        "per_window": [
+          {
+            "window_id": "1-00141",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "1-01673",
+            "primary_han": 5,
+            "secondary_han": 5,
+            "intersection_han": 5,
+            "union_han": 5
+          },
+          {
+            "window_id": "2-00456",
+            "primary_han": 25,
+            "secondary_han": 23,
+            "intersection_han": 19,
+            "union_han": 29
+          },
+          {
+            "window_id": "3-01507",
+            "primary_han": 23,
+            "secondary_han": 24,
+            "intersection_han": 23,
+            "union_han": 24
+          }
+        ]
+      },
+      "sensory_visual": {
+        "windows": 4,
+        "primary_han": 284,
+        "secondary_han": 330,
+        "intersection_han": 225,
+        "union_han": 389,
+        "f1": 0.7328990228013029,
+        "jaccard": 0.5784061696658098,
+        "per_window": [
+          {
+            "window_id": "1-00141",
+            "primary_han": 58,
+            "secondary_han": 93,
+            "intersection_han": 56,
+            "union_han": 95
+          },
+          {
+            "window_id": "1-01673",
+            "primary_han": 87,
+            "secondary_han": 67,
+            "intersection_han": 58,
+            "union_han": 96
+          },
+          {
+            "window_id": "2-00456",
+            "primary_han": 79,
+            "secondary_han": 85,
+            "intersection_han": 63,
+            "union_han": 101
+          },
+          {
+            "window_id": "3-01507",
+            "primary_han": 60,
+            "secondary_han": 85,
+            "intersection_han": 48,
+            "union_han": 97
+          }
+        ]
+      },
+      "sensory_auditory": {
+        "windows": 4,
+        "primary_han": 93,
+        "secondary_han": 119,
+        "intersection_han": 84,
+        "union_han": 128,
+        "f1": 0.7924528301886793,
+        "jaccard": 0.65625,
+        "per_window": [
+          {
+            "window_id": "1-00141",
+            "primary_han": 14,
+            "secondary_han": 18,
+            "intersection_han": 14,
+            "union_han": 18
+          },
+          {
+            "window_id": "1-01673",
+            "primary_han": 36,
+            "secondary_han": 36,
+            "intersection_han": 31,
+            "union_han": 41
+          },
+          {
+            "window_id": "2-00456",
+            "primary_han": 26,
+            "secondary_han": 26,
+            "intersection_han": 22,
+            "union_han": 30
+          },
+          {
+            "window_id": "3-01507",
+            "primary_han": 17,
+            "secondary_han": 39,
+            "intersection_han": 17,
+            "union_han": 39
+          }
+        ]
+      },
+      "sensory_touch": {
+        "windows": 4,
+        "primary_han": 0,
+        "secondary_han": 0,
+        "intersection_han": 0,
+        "union_han": 0,
+        "f1": null,
+        "jaccard": null,
+        "per_window": [
+          {
+            "window_id": "1-00141",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "1-01673",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00456",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "3-01507",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          }
+        ]
+      },
+      "sensory_smell": {
+        "windows": 4,
+        "primary_han": 0,
+        "secondary_han": 0,
+        "intersection_han": 0,
+        "union_han": 0,
+        "f1": null,
+        "jaccard": null,
+        "per_window": [
+          {
+            "window_id": "1-00141",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "1-01673",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00456",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "3-01507",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          }
+        ]
+      },
+      "sensory_taste": {
+        "windows": 4,
+        "primary_han": 0,
+        "secondary_han": 0,
+        "intersection_han": 0,
+        "union_han": 0,
+        "f1": null,
+        "jaccard": null,
+        "per_window": [
+          {
+            "window_id": "1-00141",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "1-01673",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00456",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "3-01507",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          }
+        ]
+      },
+      "sensory_temperature": {
+        "windows": 4,
+        "primary_han": 0,
+        "secondary_han": 0,
+        "intersection_han": 0,
+        "union_han": 0,
+        "f1": null,
+        "jaccard": null,
+        "per_window": [
+          {
+            "window_id": "1-00141",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "1-01673",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00456",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "3-01507",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          }
+        ]
+      },
+      "sensory_interoception": {
+        "windows": 4,
+        "primary_han": 0,
+        "secondary_han": 0,
+        "intersection_han": 0,
+        "union_han": 0,
+        "f1": null,
+        "jaccard": null,
+        "per_window": [
+          {
+            "window_id": "1-00141",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "1-01673",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00456",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "3-01507",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          }
+        ]
+      },
+      "sensory_kinesthetic": {
+        "windows": 4,
+        "primary_han": 10,
+        "secondary_han": 0,
+        "intersection_han": 0,
+        "union_han": 10,
+        "f1": 0.0,
+        "jaccard": 0.0,
+        "per_window": [
+          {
+            "window_id": "1-00141",
+            "primary_han": 10,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 10
+          },
+          {
+            "window_id": "1-01673",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00456",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "3-01507",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          }
+        ]
+      },
+      "figurative_all": {
+        "windows": 4,
+        "primary_han": 86,
+        "secondary_han": 81,
+        "intersection_han": 76,
+        "union_han": 91,
+        "f1": 0.9101796407185628,
+        "jaccard": 0.8351648351648352,
+        "per_window": [
+          {
+            "window_id": "1-00141",
+            "primary_han": 18,
+            "secondary_han": 18,
+            "intersection_han": 18,
+            "union_han": 18
+          },
+          {
+            "window_id": "1-01673",
+            "primary_han": 5,
+            "secondary_han": 5,
+            "intersection_han": 5,
+            "union_han": 5
+          },
+          {
+            "window_id": "2-00456",
+            "primary_han": 25,
+            "secondary_han": 23,
+            "intersection_han": 19,
+            "union_han": 29
+          },
+          {
+            "window_id": "3-01507",
+            "primary_han": 38,
+            "secondary_han": 35,
+            "intersection_han": 34,
+            "union_han": 39
+          }
+        ]
+      },
+      "five_sense_union": {
+        "windows": 4,
+        "primary_han": 369,
+        "secondary_han": 419,
+        "intersection_han": 301,
+        "union_han": 487,
+        "f1": 0.7639593908629442,
+        "jaccard": 0.6180698151950719,
+        "per_window": [
+          {
+            "window_id": "1-00141",
+            "primary_han": 72,
+            "secondary_han": 111,
+            "intersection_han": 70,
+            "union_han": 113
+          },
+          {
+            "window_id": "1-01673",
+            "primary_han": 115,
+            "secondary_han": 90,
+            "intersection_han": 81,
+            "union_han": 124
+          },
+          {
+            "window_id": "2-00456",
+            "primary_han": 105,
+            "secondary_han": 111,
+            "intersection_han": 85,
+            "union_han": 131
+          },
+          {
+            "window_id": "3-01507",
+            "primary_han": 77,
+            "secondary_han": 107,
+            "intersection_han": 65,
+            "union_han": 119
+          }
+        ]
+      },
+      "auxiliary_sense_union": {
+        "windows": 4,
+        "primary_han": 10,
+        "secondary_han": 0,
+        "intersection_han": 0,
+        "union_han": 10,
+        "f1": 0.0,
+        "jaccard": 0.0,
+        "per_window": [
+          {
+            "window_id": "1-00141",
+            "primary_han": 10,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 10
+          },
+          {
+            "window_id": "1-01673",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "2-00456",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          },
+          {
+            "window_id": "3-01507",
+            "primary_han": 0,
+            "secondary_han": 0,
+            "intersection_han": 0,
+            "union_han": 0
+          }
+        ]
+      }
+    },
+    "method": "certain-only han-codepoint sets clipped to core; union within each label; primary density per 1000 core han; overlap F1=2|A∩B|/(|A|+|B|), Jaccard=|A∩B|/|A∪B|. Neither coder is gold. Both empty -> null, not perfect. No adjudication or kappa.",
+    "uncertain_records": 46
+  }
+]

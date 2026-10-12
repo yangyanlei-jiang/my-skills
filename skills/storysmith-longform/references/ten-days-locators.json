@@ -1,0 +1,332 @@
+[
+  {
+    "evidence_id": "TD-E01",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S0001",
+    "paragraph_id": "S0001-P00014",
+    "source_line": 35,
+    "start": 605,
+    "end": 611,
+    "label": "rule_gap"
+  },
+  {
+    "evidence_id": "TD-E02",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S0001",
+    "paragraph_id": "S0001-P00018",
+    "source_line": 43,
+    "start": 773,
+    "end": 776,
+    "label": "sensory_smell"
+  },
+  {
+    "evidence_id": "TD-E03",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S0001",
+    "paragraph_id": "S0001-P00003",
+    "source_line": 13,
+    "start": 258,
+    "end": 271,
+    "label": "simile"
+  },
+  {
+    "evidence_id": "TD-E04",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S0002",
+    "paragraph_id": "S0002-P00052",
+    "source_line": 246,
+    "start": 4886,
+    "end": 4893,
+    "label": "rule_omission"
+  },
+  {
+    "evidence_id": "TD-E05",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S0003",
+    "paragraph_id": "S0003-P00006",
+    "source_line": 275,
+    "start": 5273,
+    "end": 5281,
+    "label": "motive_choice"
+  },
+  {
+    "evidence_id": "TD-E06",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S0004",
+    "paragraph_id": "S0004-P00051",
+    "source_line": 472,
+    "start": 9470,
+    "end": 9479,
+    "label": "pov_inference"
+  },
+  {
+    "evidence_id": "TD-E07",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S0005",
+    "paragraph_id": "S0005-P00057",
+    "source_line": 593,
+    "start": 11705,
+    "end": 11715,
+    "label": "subtext"
+  },
+  {
+    "evidence_id": "TD-E08",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S0008",
+    "paragraph_id": "S0008-P00050",
+    "source_line": 938,
+    "start": 18116,
+    "end": 18132,
+    "label": "knowledge_ledger"
+  },
+  {
+    "evidence_id": "TD-E09",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S0010",
+    "paragraph_id": "S0010-P00013",
+    "source_line": 1120,
+    "start": 21841,
+    "end": 21865,
+    "label": "logic_limit"
+  },
+  {
+    "evidence_id": "TD-E10",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S0010",
+    "paragraph_id": "S0010-P00046",
+    "source_line": 1186,
+    "start": 22984,
+    "end": 23005,
+    "label": "local_resolution"
+  },
+  {
+    "evidence_id": "TD-E11",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S0011",
+    "paragraph_id": "S0011-P00028",
+    "source_line": 1279,
+    "start": 24563,
+    "end": 24579,
+    "label": "object_refunction"
+  },
+  {
+    "evidence_id": "TD-E12",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S0673",
+    "paragraph_id": "S0673-P00042",
+    "source_line": 87069,
+    "start": 1542408,
+    "end": 1542416,
+    "label": "information_block"
+  },
+  {
+    "evidence_id": "TD-E13",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S0673",
+    "paragraph_id": "S0673-P00056",
+    "source_line": 87097,
+    "start": 1542906,
+    "end": 1542912,
+    "label": "bodily_transition"
+  },
+  {
+    "evidence_id": "TD-E14",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S0674",
+    "paragraph_id": "S0674-P00041",
+    "source_line": 87208,
+    "start": 1545133,
+    "end": 1545141,
+    "label": "subtext_risk"
+  },
+  {
+    "evidence_id": "TD-E15",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S0674",
+    "paragraph_id": "S0674-P00049",
+    "source_line": 87224,
+    "start": 1545540,
+    "end": 1545558,
+    "label": "metaphor_model"
+  },
+  {
+    "evidence_id": "TD-E16",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S0675",
+    "paragraph_id": "S0675-P00039",
+    "source_line": 87313,
+    "start": 1547484,
+    "end": 1547495,
+    "label": "moral_counter"
+  },
+  {
+    "evidence_id": "TD-E17",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S0689",
+    "paragraph_id": "S0689-P00047",
+    "source_line": 88979,
+    "start": 1578989,
+    "end": 1579004,
+    "label": "child_voice"
+  },
+  {
+    "evidence_id": "TD-E18",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S0689",
+    "paragraph_id": "S0689-P00058",
+    "source_line": 89001,
+    "start": 1579290,
+    "end": 1579296,
+    "label": "metaphor_trauma"
+  },
+  {
+    "evidence_id": "TD-E19",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S0690",
+    "paragraph_id": "S0690-P00032",
+    "source_line": 89076,
+    "start": 1580579,
+    "end": 1580587,
+    "label": "ethical_reversal"
+  },
+  {
+    "evidence_id": "TD-E20",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S0692",
+    "paragraph_id": "S0692-P00060",
+    "source_line": 89370,
+    "start": 1586165,
+    "end": 1586175,
+    "label": "smell_literal"
+  },
+  {
+    "evidence_id": "TD-E21",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S0693",
+    "paragraph_id": "S0693-P00047",
+    "source_line": 89473,
+    "start": 1587876,
+    "end": 1587884,
+    "label": "memory_cost"
+  },
+  {
+    "evidence_id": "TD-E22",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S0891",
+    "paragraph_id": "S0891-P00030",
+    "source_line": 110729,
+    "start": 2029543,
+    "end": 2029558,
+    "label": "anchor"
+  },
+  {
+    "evidence_id": "TD-E23",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S0892",
+    "paragraph_id": "S0892-P00018",
+    "source_line": 110824,
+    "start": 2031665,
+    "end": 2031678,
+    "label": "layered_release"
+  },
+  {
+    "evidence_id": "TD-E24",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S0892",
+    "paragraph_id": "S0892-P00035",
+    "source_line": 110858,
+    "start": 2032293,
+    "end": 2032304,
+    "label": "flower_symbol"
+  },
+  {
+    "evidence_id": "TD-E25",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S0892",
+    "paragraph_id": "S0892-P00022",
+    "source_line": 110832,
+    "start": 2031808,
+    "end": 2031820,
+    "label": "limited_witness"
+  },
+  {
+    "evidence_id": "TD-E26",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S1334",
+    "paragraph_id": "S1334-P00008",
+    "source_line": 161114,
+    "start": 3020203,
+    "end": 3020215,
+    "label": "dream_cue"
+  },
+  {
+    "evidence_id": "TD-E27",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S1335",
+    "paragraph_id": "S1335-P00035",
+    "source_line": 161291,
+    "start": 3023473,
+    "end": 3023480,
+    "label": "false_ending"
+  },
+  {
+    "evidence_id": "TD-E28",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S1336",
+    "paragraph_id": "S1336-P00020",
+    "source_line": 161420,
+    "start": 3025548,
+    "end": 3025558,
+    "label": "pov_reveal"
+  },
+  {
+    "evidence_id": "TD-E29",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S1337",
+    "paragraph_id": "S1337-P00060",
+    "source_line": 161629,
+    "start": 3029150,
+    "end": 3029159,
+    "label": "trust_block"
+  },
+  {
+    "evidence_id": "TD-E30",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S1358",
+    "paragraph_id": "S1358-P00041",
+    "source_line": 164836,
+    "start": 3081440,
+    "end": 3081453,
+    "label": "cost_resolution"
+  },
+  {
+    "evidence_id": "TD-E31",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S1359",
+    "paragraph_id": "S1359-P00113",
+    "source_line": 165097,
+    "start": 3085611,
+    "end": 3085631,
+    "label": "theme_border"
+  },
+  {
+    "evidence_id": "TD-E32",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S1359",
+    "paragraph_id": "S1359-P00116",
+    "source_line": 165103,
+    "start": 3085686,
+    "end": 3085700,
+    "label": "open_rescue"
+  },
+  {
+    "evidence_id": "TD-E33",
+    "source_sha": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+    "section_id": "S1359",
+    "paragraph_id": "S1359-P00133",
+    "source_line": 165137,
+    "start": 3086018,
+    "end": 3086033,
+    "label": "closed_clock"
+  }
+]

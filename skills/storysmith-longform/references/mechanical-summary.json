@@ -1,0 +1,132 @@
+{
+  "scope": "2026-10-12 uploaded text body, not external editions; mechanical results only",
+  "manual_coverage": "See book-specific evidence reports; sampled windows are not automatically annotated",
+  "rows": [
+    {
+      "work": "灵飞经",
+      "han": 946155,
+      "sentences": 37083,
+      "sample_han": 21600,
+      "coverage_fraction": 0.02282924045214579,
+      "sample_windows": 36,
+      "covered_sections": 31,
+      "total_sections": 171,
+      "seed": 20261012,
+      "normalized_sha256": "dc2b01cd6d27e484381f9c8d3e8c6e61f01467b81233fd7500a9f97ecaedc465",
+      "source_original_sha256": "3fe02f6a5cf10747d743717d4d0d1a8f50142e706773165808286b9c33fd8552",
+      "nonwhitespace_codepoints": 1144445,
+      "physical_nonempty_lines": 17531,
+      "sentence_lengths": {
+        "han": {
+          "n": 37083,
+          "mean": 25.514521478844753,
+          "median": 23,
+          "p10": 5.0,
+          "p90": 48.0,
+          "population_stddev": 17.17013231257732,
+          "min": 1,
+          "max": 225,
+          "zero_count": 0
+        },
+        "nonwhitespace_codepoints": {
+          "n": 37083,
+          "mean": 30.8607987487528,
+          "median": 28,
+          "p10": 8.0,
+          "p90": 56.0,
+          "population_stddev": 19.601803760187185,
+          "min": 2,
+          "max": 254,
+          "zero_count": 0
+        }
+      },
+      "quotation_han_fraction": 0.3580914332218294,
+      "quotation_interior_han_union": 338810,
+      "excluded": "front matter, indexed headings, blank lines, confirmed terminal markers; main/extra/afterword separated"
+    },
+    {
+      "work": "十日终焉",
+      "han": 2416346,
+      "sentences": 127044,
+      "sample_han": 21600,
+      "coverage_fraction": 0.008939117162856645,
+      "sample_windows": 36,
+      "covered_sections": 42,
+      "total_sections": 1359,
+      "seed": 20261012,
+      "normalized_sha256": "5f54edfcca9f71cc9f5eb6bb7ff1a9dec7d8e56ae5a7944dcfd689c7f27e09fa",
+      "source_original_sha256": "1b769b336572da5cd737d975e1110a561cff27e0de7accf3c80c75bb3e7c37ef",
+      "nonwhitespace_codepoints": 2906545,
+      "physical_nonempty_lines": 80531,
+      "sentence_lengths": {
+        "han": {
+          "n": 127044,
+          "mean": 19.019756934605333,
+          "median": 16.0,
+          "p10": 2.0,
+          "p90": 40.0,
+          "population_stddev": 15.677888882795273,
+          "min": 0,
+          "max": 163,
+          "zero_count": 10
+        },
+        "nonwhitespace_codepoints": {
+          "n": 127044,
+          "mean": 22.87233556877932,
+          "median": 19.0,
+          "p10": 5.0,
+          "p90": 46.0,
+          "population_stddev": 17.028763379575498,
+          "min": 2,
+          "max": 188,
+          "zero_count": 0
+        }
+      },
+      "quotation_han_fraction": 0.39101767710418955,
+      "quotation_interior_han_union": 944834,
+      "excluded": "front matter, indexed headings, blank lines, confirmed terminal markers; main/extra/afterword separated"
+    },
+    {
+      "work": "我不是戏神",
+      "han": 3410301,
+      "sentences": 159882,
+      "sample_han": 21600,
+      "coverage_fraction": 0.006333751771471199,
+      "sample_windows": 36,
+      "covered_sections": 50,
+      "total_sections": 1923,
+      "seed": 20261012,
+      "normalized_sha256": "445f7cb276fa88ee46cdb345f9bd27d872b0c6a4be2d9ed18329de1978745a77",
+      "source_original_sha256": "206b1721a4eb46eae94a4e3fe32589b223d9a55d67c7b8c8ad8149aad55097bd",
+      "nonwhitespace_codepoints": 4002300,
+      "physical_nonempty_lines": 119178,
+      "sentence_lengths": {
+        "han": {
+          "n": 159882,
+          "mean": 21.330112207753217,
+          "median": 16.0,
+          "p10": 3.0,
+          "p90": 48.0,
+          "population_stddev": 17.948317256550006,
+          "min": 0,
+          "max": 195,
+          "zero_count": 177
+        },
+        "nonwhitespace_codepoints": {
+          "n": 159882,
+          "mean": 24.946141529377915,
+          "median": 19.0,
+          "p10": 6.0,
+          "p90": 53.0,
+          "population_stddev": 19.15342952000863,
+          "min": 2,
+          "max": 216,
+          "zero_count": 0
+        }
+      },
+      "quotation_han_fraction": 0.4775719210708967,
+      "quotation_interior_han_union": 1628664,
+      "excluded": "front matter, indexed headings, blank lines, confirmed terminal markers; main/extra/afterword separated"
+    }
+  ]
+}

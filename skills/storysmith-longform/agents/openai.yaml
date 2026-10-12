@@ -1,0 +1,4 @@
+interface:
+  display_name: "长篇原创写作"
+  short_description: "写出人物有选择、情节有因果、语言有余味的原创长篇，贯通分卷、章节、伏笔与收束"
+  default_prompt: "使用 $storysmith-longform，围绕我的人物和核心矛盾规划长篇，并开始写正文。"

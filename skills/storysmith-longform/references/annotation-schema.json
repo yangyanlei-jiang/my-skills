@@ -1,0 +1,85 @@
+{
+  "version": "1.0",
+  "purpose": "Supporting analysis reference, not a mandatory workflow for writing fiction",
+  "record_types": {
+    "span": {
+      "required": [
+        "record_type",
+        "work",
+        "sha",
+        "window_id",
+        "start",
+        "end",
+        "quote",
+        "labels",
+        "reason",
+        "certainty",
+        "coder",
+        "version"
+      ],
+      "optional": [
+        "counterevidence",
+        "source_map",
+        "source_lines",
+        "section_id",
+        "paragraph_id"
+      ]
+    },
+    "coverage": {
+      "required": [
+        "record_type",
+        "work",
+        "window_id",
+        "coder",
+        "version",
+        "families_reviewed",
+        "status"
+      ],
+      "status_enum": [
+        "complete",
+        "partial",
+        "unreviewed"
+      ],
+      "note": "Only complete coverage for a label family makes no positive span a zero; partial/unreviewed is unknown."
+    }
+  },
+  "labels": [
+    "metaphor",
+    "simile",
+    "sensory_visual",
+    "sensory_auditory",
+    "sensory_touch",
+    "sensory_smell",
+    "sensory_taste",
+    "sensory_temperature",
+    "sensory_interoception",
+    "sensory_kinesthetic"
+  ],
+  "aliases": {
+    "M": "metaphor",
+    "SIM": "simile",
+    "V": "sensory_visual",
+    "A": "sensory_auditory",
+    "T": "sensory_touch",
+    "O": "sensory_smell",
+    "G": "sensory_taste",
+    "TEMP": "sensory_temperature",
+    "INTERO": "sensory_interoception",
+    "K": "sensory_kinesthetic"
+  },
+  "certainty_enum": [
+    "certain",
+    "uncertain"
+  ],
+  "offsets": "Unicode codepoints in matching *.main.analysis.txt, half-open [start,end); core clipped for rates; quote must equal text[start:end]",
+  "metaphor_vs_simile": "metaphor means cross-domain mapping without explicit comparison; simile means explicit cross-domain comparison. Same mapping receives one of these, never both. Figurative-all is union(metaphor,simile), not a sum of overlapping spans. M alias refers to metaphor only, not umbrella.",
+  "sensory_boundary": "Explicit perceptible attribute or perception event only. Not every action is visual. Speech content or said/asked alone is not auditory; qualify actual sound, volume, timbre, rhythm or hearing. Visual includes explicit color/light/form/posture/expression with perceptual salience. Generic abstract distress is not bodily sensation. Kinesthetic requires represented bodily movement/balance/force sensation, not any action verb.",
+  "fantasy_boundary": "Literal manifestation within the fictional world is not automatically metaphor. Sensory attributes can still qualify. Cross-domain candidate with insufficient context is uncertain, excluded from primary positive counts and retained separately.",
+  "span_boundary": "Use shortest contiguous source span sufficient to justify the label; normally a clause or phrase, not a whole paragraph. For distinct cues create separate spans. Multiple sensory labels may share one span. Same-label overlaps union at aggregation; cross-label overlaps retained. Annotate full evidenced phrase if available then aggregate intersection with core.",
+  "events": "Count each distinct mapping/sensory cue once; optionally add event_id to link disjoint spans. Character-union density is primary comparison when boundary/event granularity differs.",
+  "coverage_families": [
+    "figurative",
+    "sensory"
+  ],
+  "five_sense_reporting": "Core five senses are visual/auditory/touch/smell/taste, labels may overlap. temperature/interoception/kinesthetic are auxiliary and must be reported separately. Each label density uses the same core-han denominator. Five-sense union excludes auxiliary-only spans. If reporting normalized five-sense shares, explicitly exclude auxiliary labels and disclose multi-label fractional-allocation method; raw densities need not total 100%."
+}
