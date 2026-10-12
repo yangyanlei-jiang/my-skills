@@ -26,6 +26,8 @@ cd my-skills
 
 `feishu-docs` 已提炼用户指定的 [《如何写好飞书文档？》](https://www.feishu.cn/hc/zh-CN/articles/360049067898-%E5%A6%82%E4%BD%95%E5%86%99%E5%A5%BD%E9%A3%9E%E4%B9%A6%E6%96%87%E6%A1%A3)，写作原则见 [来源与摘要](skills/feishu-docs/references/writing-principles.md)。
 
+技术方案包含用户指定的 [接口与新增数据表格式](skills/feishu-docs/references/technical-format.md)：接口按基本信息、字段表与 JSON 示例组织，新增表直接给完整 SQL；实际契约遵循当前项目。新建富文本表格使用 [2.2 样式](skills/feishu-docs/references/native-format.md)，并统一铺满正文宽度。
+
 ## 维护
 
 新增技能遵循 [AGENTS.md](AGENTS.md)，并更新此索引。SkillRover 的主维护目录为 `skills/skill-rover/`；[原独立仓库](https://github.com/yangyanlei-jiang/skill-rover) 保留历史版本。后续个人技能统一在本集合维护。

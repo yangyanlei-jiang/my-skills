@@ -69,3 +69,22 @@
 - 只支持基础 Markdown：[Markdown](artifacts/md-guided/B/draft.md)、[计划](artifacts/md-guided/B/plan.md)。完整生成标题、列表、3×3 表格和 Python 围栏；批量转换后仅用浏览器补两项原生格式，不重建已有表格。
 
 主执行者读取并核对全部产物，确认要求和数据保留、操作说明未混入正式正文、计划未宣称真实写入。XML 扩展片段的本地解析、技能清单、UI 配置与引用路径检查通过。以上是内容与操作计划验证，未验证真实工具的转换保真、浏览器执行或耗时。
+
+## 补充验证：个人接口、建表与统一全宽表格格式
+
+2026-10-12 通过已登录浏览器只读核对用户指定文档的 3.1 接口结构、5.1 SQL 展示及 2.2 原生表格结构和样式。公开技能仅保存可复用版式与虚构示例；私有地址、原文业务字段和数据未提交。未编辑原参考文档。
+
+独立基线使用 `c30fb8d` 的旧技能快照与虚构资料：[正文](artifacts/technical-template/baseline/draft.md)、[计划](artifacts/technical-template/baseline/plan.md)。内容已包含正确的 SQL 与响应契约，但接口基本信息为段落、响应字段合并在一张表中，未使用此次指定的基本信息表与按对象分表版式。基线未获得该私人版式，因此不把这种差异视为原有接口内容错误，也不据此宣称准确率或性能提升。
+
+更新后的 [任务记录方案](artifacts/technical-template/guided/draft.md) 采用基本信息、入参、返回格式、分对象字段表、JSON 示例和条件说明；新增表标题下直接放完整 SQL。首次指导样本重复列了公共响应根对象和单字段中间层，补充条件性说明后删除两张重复表，仅保留三张必要表格。
+
+[不同契约变体](artifacts/technical-template/guided/another-draft.md) 使用 `success/result/fault`、X-Client-Key 与另一个 SQLite 表，未沿用技能示例的响应封装、JWT 或版本门槛。主执行者读回全部产物，解析 JSON，并在 SQLite 内存数据库执行两套 DDL，确认默认状态、唯一/枚举/非空约束和命名查询索引。没有调用真实接口或执行真实项目迁移。以上技术方案检查发生在后续表格样式补充之前，样式和宽度由下面单独场景验证。
+
+用户进一步要求新表格采用 2.2 的浅灰表头、加粗居中、正文左/顶部对齐、自然换行与细边框，并让所有表格总宽度一致、铺满正文可用宽度。两种能力下的离线应用结果：
+
+- [扩展 Markdown](artifacts/technical-template/guided/table-A.md)、[验收计划](artifacts/technical-template/guided/table-A-plan.md)：根据场景给定的 960px 正文宽度直接生成 XML；两列表为 240+720，三列表为 240+160+560，总宽均为 960。主执行者解析 XML，核对全部数据、特殊字符、表头样式、正文对齐及列宽总和。
+- [基础 Markdown](artifacts/technical-template/guided/table-B.md)、[补齐计划](artifacts/technical-template/guided/table-B-plan.md)：保留完整管道表格，列出背景、对齐和全宽的具体缺口；取得目标正文宽度 W 后按内容分配列宽并保留相同总宽，只调整已有表格，不重建或逐格重填。
+
+本地检查最初将分隔行中的列分隔符出现次数误当成表格数量；确认实际有两行分隔行后修正该验证断言并重新通过。未更改表格产物以迎合断言。
+
+虚构资料见 [主场景](artifacts/technical-template/fixture.md)、[契约变体](artifacts/technical-template/variation.md)、[表格场景](artifacts/technical-template/table-fixture.md)。技能清单、引用、XML 示例、JSON 与 SQL 本地检查通过。以上均为离线生成与计划验证；真实 Markdown 转换、全宽渲染和浏览器补齐效果尚未实测。
