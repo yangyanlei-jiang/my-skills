@@ -48,3 +48,9 @@
 2026-10-12 根据用户要求新增总原则。独立执行者读取更新后的技能，将三项事实和一项风险编为简短周报：[草稿](artifacts/simple/draft.md)、[原生操作计划](artifacts/simple/plan.md)。
 
 观察到的结果：正文仅两项进展列表和一项风险，标题使用标题字段；选择原生列表与高亮块，无额外章节、表格、图表或装饰。必需信息均保留，不声称已真实写入。清单验证再次通过；此检查仍是离线行为方案验证。
+
+## 补充验证：数据库表与接口契约
+
+2026-10-12 增加技术方案必要交付要求。独立执行者使用虚构的 SQLite 3 项目资料和明确的 `ok/payload/error` 响应契约，编写新增幂等记录表及查询接口方案：[正文](artifacts/technical/draft.md)、[DDL](artifacts/technical/create.sql)、[响应示例](artifacts/technical/responses.json)、[原生操作计划](artifacts/technical/plan.md)。
+
+结果包含完整 CREATE TABLE、成功与未找到响应，并选择 SQL/JSON 原生代码块；响应未套用其他封装。主执行者核对正文与独立产物完全一致，在 SQLite 内存数据库执行 DDL 和有效插入，并确认唯一约束、状态约束、非空约束拒绝非法记录。此验证不涉及真实项目数据库、接口实测或飞书写入；示例中的 SQLite 与响应结构不作为技能的默认规范。

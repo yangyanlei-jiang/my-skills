@@ -1,0 +1,18 @@
+{
+  "success": {
+    "ok": true,
+    "payload": {
+      "requestKey": "req-001",
+      "status": "done"
+    },
+    "error": null
+  },
+  "not_found": {
+    "ok": false,
+    "payload": null,
+    "error": {
+      "type": "NOT_FOUND",
+      "detail": "记录不存在"
+    }
+  }
+}
