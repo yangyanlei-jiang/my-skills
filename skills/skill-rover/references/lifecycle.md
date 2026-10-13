@@ -4,7 +4,7 @@ All commands below use the Python environment created during setup. Resolve rove
 
 ## States and clock
 
-Installation copies a reviewed source into packages/<id>. It is not yet loaded and has no review deadline. load returns SKILL.md content, records the session's usage and starts the timer on the first load only.
+Installation copies a reviewed source into packages/<id>. It is not yet loaded and has no review deadline. load reads the bounded UTF-8 SKILL.md content before committing the session's usage and starts the timer on the first successful load only. A failed instruction read leaves the load timestamps, usage and load history unchanged. A replacement candidate that was only installed still has no deadline until its first load; a previously loaded candidate starts a new review period at replacement.
 
 due_at = (last completed review, otherwise first load) + review_seconds
 

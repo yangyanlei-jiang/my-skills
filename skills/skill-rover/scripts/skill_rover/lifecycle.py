@@ -7,6 +7,7 @@ import time
 import uuid
 from pathlib import Path
 
+from . import catalog
 from .catalog import SKIP, bundle_digest, read_skill
 
 DEFAULT_REVIEW_SECONDS = 86400
@@ -103,6 +104,8 @@ def load(store, identity, session, explicit=False, now=None, expected_check=_UNB
         record = _checked(store, state, identity)
         if not record["implicit"] and not explicit:
             raise ValueError("skill requires explicit invocation")
+        path = package_path(store, record) / "SKILL.md"
+        instructions = catalog._metadata_bytes(path).decode("utf-8")
         if record["loaded_at"] is None:
             record["loaded_at"] = now
         record["last_used_at"] = now
@@ -110,7 +113,7 @@ def load(store, identity, session, explicit=False, now=None, expected_check=_UNB
         if identity not in entries:
             entries.append(identity)
         state["history"].append({"action": "load", "id": identity, "session": session, "at": now})
-        return {**record, "path": str(package_path(store, record) / "SKILL.md")}
+        return {**record, "path": str(path), "instructions": instructions}
 
 def release(store, session, identity=None):
     session = _text(session, "session")
@@ -219,8 +222,10 @@ def replace(store, old_id, candidate_id, evidence, explicit=False, now=None):
         _evidence(evidence, old, candidate)
         old["status"] = "retired"
         old["replacement_id"] = candidate_id
-        candidate["loaded_at"] = candidate["loaded_at"] if candidate["loaded_at"] is not None else now
-        candidate["reviewed_at"], candidate["review_reason"] = now, None
+        # Replacement validates a bundle but does not load its instructions.
+        # Unloaded candidates start their first review period on their first load.
+        candidate["reviewed_at"] = now if candidate["loaded_at"] is not None else None
+        candidate["review_reason"] = None
         state["history"].append({"action": "replace", "old": old_id, "new": candidate_id,
                                  "at": now, "evidence": evidence})
         active = dict(candidate)

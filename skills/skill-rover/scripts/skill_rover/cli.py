@@ -7,6 +7,7 @@ from pathlib import Path
 from . import __version__, github, lifecycle, routing
 from .catalog import scan
 from .integration import hook, integrate
+from .diagnostics import diagnose
 from .store import Store
 
 def parser():
@@ -69,6 +70,9 @@ def parser():
     c = commands.add_parser("integrate", help="install router and deadline hooks in an explicitly selected project")
     c.add_argument("--project", required=True)
     c.add_argument("--host", choices=["codex", "claude", "both"], required=True)
+    c = commands.add_parser("doctor", help="read-only project hook and routing diagnostics; does not verify host trust")
+    c.add_argument("--project", required=True)
+    c.add_argument("--host", choices=["codex", "claude"], required=True)
     commands.add_parser("hook", help="handle native JSON events on stdin")
     return p
 
@@ -81,7 +85,7 @@ def dispatch(a):
         payload = json.loads(data)
         if not isinstance(payload, dict):
             raise ValueError("hook input must be an object")
-    default_state = Path(a.project) / ".skill-rover" if a.command == "integrate" else Path(".skill-rover")
+    default_state = Path(a.project) / ".skill-rover" if a.command in ("integrate", "doctor") else Path(".skill-rover")
     if payload is not None and not a.state_dir and "cwd" in payload:
         cwd = payload["cwd"]
         if not isinstance(cwd, str) or not Path(cwd).is_absolute():
@@ -100,14 +104,12 @@ def dispatch(a):
         binding = {"check_id": a.check_id} if a.check_id is not None else {}
         result = routing.use(store, a.source, a.session, a.reason, a.origin, a.revision,
                              a.review_hours * 3600, explicit=a.explicit, **binding)
-        result["instructions"] = Path(result["path"]).read_text(encoding="utf-8")
         return result
     if a.command == "record-route":
         binding = {"check_id": a.check_id} if a.check_id is not None else {}
         return routing.record(store, a.session, a.decision, a.reason, **binding)
     if a.command == "load":
         result = lifecycle.load(store, a.id, a.session, explicit=a.explicit)
-        result["instructions"] = Path(result["path"]).read_text(encoding="utf-8")
         return result
     if a.command == "release":
         return lifecycle.release(store, a.session, a.id)
@@ -127,6 +129,8 @@ def dispatch(a):
     if a.command == "integrate":
         hosts = ["codex", "claude"] if a.host == "both" else [a.host]
         return [integrate(a.project, h, store.root, Path(__file__).resolve().parents[2]) for h in hosts]
+    if a.command == "doctor":
+        return diagnose(a.project, a.host, store.root, Path(__file__).resolve().parents[2])
     if a.command == "hook":
         return hook(payload, store)
     raise ValueError("unsupported command")
@@ -143,4 +147,6 @@ def main():
             return 0
         return 1
     print(json.dumps(result, ensure_ascii=False, indent=2, allow_nan=False))
+    if args.command == "doctor" and not result["ok"]:
+        return 1
     return 0

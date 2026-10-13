@@ -31,6 +31,32 @@ class LifecycleTests(Fixture):
         self.assertEqual(self.life.due(self.store, now=159), [])
         self.assertEqual(self.life.due(self.store, now=160)[0]["id"], a["id"])
 
+    def test_load_returns_instructions_from_managed_bundle(self):
+        a = self.install()
+        result = self.life.load(self.store, a["id"], "a", now=100)
+        self.assertIn("instructions", result)
+        self.assertIn("Extract PDF tables.", result["instructions"])
+
+    def test_failed_instruction_read_does_not_start_clock_or_register_usage(self):
+        a = self.install()
+        before = self.store.read()
+        with patch("skill_rover.catalog._metadata_bytes", side_effect=OSError("manifest unavailable")):
+            with self.assertRaisesRegex(OSError, "manifest unavailable"):
+                self.life.load(self.store, a["id"], "a", now=100)
+        self.assertEqual(self.store.read(), before)
+        self.assertEqual(self.life.due(self.store, now=1000000), [])
+
+    def test_failed_instruction_decode_preserves_existing_load_history(self):
+        a = self.install()
+        self.life.load(self.store, a["id"], "a", now=100)
+        self.life.release(self.store, "a")
+        before = self.store.read()
+        with patch("skill_rover.catalog._metadata_bytes", return_value=b"\xff"):
+            with self.assertRaises(UnicodeDecodeError):
+                self.life.load(self.store, a["id"], "b", now=150)
+        self.assertEqual(self.store.read(), before)
+        self.assertEqual(self.life.due(self.store, now=160)[0]["due_at"], 160)
+
     def test_keep_records_actual_review_and_starts_next_period(self):
         a = self.install()
         self.life.load(self.store, a["id"], "a", now=100)
@@ -63,9 +89,37 @@ class LifecycleTests(Fixture):
         self.assertTrue((self.store.root / "archive" / a["id"] / "SKILL.md").exists())
         self.assertFalse((self.store.root / "packages" / a["id"]).exists())
         self.assertTrue((self.base / "source-pdf-extract" / "SKILL.md").exists())
-        self.assertEqual(state["entries"][b["id"]]["loaded_at"], 200)
+        self.assertIsNone(state["entries"][b["id"]]["loaded_at"])
         with self.assertRaises(ValueError):
             self.life.load(self.store, a["id"], "a", now=201)
+
+    def test_unloaded_replacement_starts_review_clock_on_first_load(self):
+        a, b = self.install(), self.install("pdf-better")
+        self.life.load(self.store, a["id"], "a", now=100)
+        self.life.release(self.store, "a")
+        self.life.replace(self.store, a["id"], b["id"], self.evidence(a, b), now=200)
+        candidate = self.store.read()["entries"][b["id"]]
+        self.assertIsNone(candidate["loaded_at"])
+        self.assertIsNone(candidate["reviewed_at"])
+        self.assertEqual(self.life.due(self.store, now=1000), [])
+        report = self.module("routing").status(self.store, now=1000)
+        self.assertEqual(report["summary"]["ever_loaded"], 1)
+        self.assertIsNone(report["review_schedule"][0]["next_review_at"])
+        self.life.load(self.store, b["id"], "b", now=1000)
+        self.assertEqual(self.life.due(self.store, now=1059), [])
+        self.assertEqual(self.life.due(self.store, now=1060)[0]["due_at"], 1060)
+
+    def test_previously_loaded_replacement_starts_next_review_period(self):
+        a, b = self.install(), self.install("pdf-better")
+        self.life.load(self.store, b["id"], "validation", now=100)
+        self.life.release(self.store, "validation")
+        self.life.replace(self.store, a["id"], b["id"], self.evidence(a, b), now=200)
+        candidate = self.store.read()["entries"][b["id"]]
+        self.assertEqual(candidate["loaded_at"], 100)
+        self.assertEqual(candidate["reviewed_at"], 200)
+        self.life.load(self.store, b["id"], "b", now=250)
+        self.assertEqual(self.life.due(self.store, now=259), [])
+        self.assertEqual(self.life.due(self.store, now=260)[0]["due_at"], 260)
 
     def test_replacement_rejects_failed_checks_and_wrong_identity(self):
         a, b = self.install(), self.install("pdf-better")

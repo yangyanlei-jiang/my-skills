@@ -3,6 +3,7 @@ import copy
 import json
 import math
 import os
+import re
 import tempfile
 from contextlib import contextmanager
 from pathlib import Path
@@ -74,6 +75,29 @@ class Store:
                 raise ValueError("unsupported state schema")
             if not isinstance(state["history"], list) or not isinstance(state["notices"], dict):
                 raise ValueError("unsupported state schema")
+            for identity, entry in state["entries"].items():
+                if (not isinstance(entry, dict) or not re.fullmatch(r"[a-f0-9]{32}", identity)
+                        or entry.get("id") != identity or entry.get("status") not in ("installed", "retired")
+                        or not isinstance(entry.get("owned"), bool)):
+                    raise ValueError("invalid lifecycle entry")
+                for field in ("installed_at", "loaded_at", "reviewed_at", "last_used_at", "review_seconds"):
+                    value = entry.get(field)
+                    if value is None and field in ("loaded_at", "reviewed_at", "last_used_at"):
+                        continue
+                    if (isinstance(value, bool) or not isinstance(value, (int, float))
+                            or not math.isfinite(value) or (field == "review_seconds" and value <= 0)):
+                        raise ValueError("invalid lifecycle timestamp or interval")
+                if not isinstance(entry.get("digest"), str) or not re.fullmatch(r"[a-f0-9]{64}", entry["digest"]):
+                    raise ValueError("invalid lifecycle digest")
+                if not isinstance(entry.get("name"), str) or not isinstance(entry.get("implicit"), bool):
+                    raise ValueError("invalid lifecycle metadata")
+            for identities in state["uses"].values():
+                if (not isinstance(identities, list) or any(not isinstance(identity, str)
+                        or identity not in state["entries"] for identity in identities)):
+                    raise ValueError("invalid lifecycle usage")
+            for value in state["notices"].values():
+                if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
+                    raise ValueError("invalid notice timestamp")
             if not isinstance(state.get("routing", {}), dict):
                 raise ValueError("unsupported routing state")
             for item in state.get("routing", {}).values():
@@ -95,7 +119,7 @@ class Store:
                 if "reminded" in item and not isinstance(item["reminded"], bool):
                     raise ValueError("invalid routing reminder state")
             return state
-        except (ValueError, KeyError, AttributeError) as exc:
+        except (ValueError, KeyError, TypeError, AttributeError, OverflowError) as exc:
             raise ValueError("invalid state; preserved for recovery: " + str(self.path)) from exc
 
     def read(self):

@@ -6,7 +6,7 @@
 
 | 技能 | 用途 | 状态 |
 | --- | --- | --- |
-| [skill-rover](skills/skill-rover/SKILL.md) | 自动选择技能，并跟踪使用与定时复评 | 从原 SkillRover 仓库迁入，保留历史和测试 |
+| [skill-rover](skills/skill-rover/SKILL.md) | 自动选择技能，并跟踪使用与定时复评 | v0.3.0：加载计时修复、接入更新与只读诊断 |
 | [feishu-docs](skills/feishu-docs/SKILL.md) | 先生成飞书兼容 Markdown，批量写入后仅补齐缺失的原生格式 | 可离线生成 `.md`；云端写入需要已授权的转换能力 |
 | [storysmith-longform](skills/storysmith-longform/SKILL.md) | 长篇原创构思、分卷章节、正文写作、伏笔连续性与收束 | 三部作品五维证据按需参考；模型样本统计仅作探索性支撑 |
 

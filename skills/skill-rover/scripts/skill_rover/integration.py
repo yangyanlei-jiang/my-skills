@@ -40,6 +40,67 @@ def _handler(args, host, event):
         handler["commandWindows"] = "powershell.exe -NoProfile -NonInteractive -EncodedCommand " + encoded
     return handler
 
+def _reject_symlink_components(project, path):
+    # The explicitly selected project may itself be an alias; callers resolve it
+    # first. Descendants must stay within that selected root before any writes.
+    current = project
+    for part in path.relative_to(project).parts:
+        current /= part
+        if current.is_symlink():
+            raise ValueError("refusing to integrate through a symlink: " + str(current))
+
+def _is_generated_handler(handler, host, event, script):
+    """Recognize only our exact command shape; leave customized hooks alone."""
+    if not isinstance(handler, dict) or not isinstance(handler.get("command"), str):
+        return False
+    if host == "claude":
+        if not isinstance(handler.get("args"), list):
+            return False
+        argv = [handler["command"], *handler["args"]]
+    else:
+        try:
+            argv = shlex.split(handler["command"])
+        except ValueError:
+            return False
+    if not all(isinstance(arg, str) for arg in argv):
+        return False
+    arguments = argv[1:]
+    if arguments[:1] == ["-B"]:
+        arguments = arguments[1:]
+    if (not argv or not Path(argv[0]).is_absolute() or len(arguments) != 4
+            or arguments[1] != "--state-dir" or arguments[3] != "hook"
+            or not Path(arguments[0]).is_absolute() or not Path(arguments[2]).is_absolute()):
+        return False
+    try:
+        if Path(arguments[0]).resolve() != script.resolve():
+            return False
+    except (OSError, RuntimeError):
+        return False
+    return handler == _handler(argv, host, event)
+
+def _upsert_handler(groups, handler, host, event, script):
+    result, inserted = [], False
+    for group in groups:
+        # Matchers or extra group fields make this a user-customized hook.
+        if not isinstance(group, dict) or set(group) != {"hooks"} or not isinstance(group["hooks"], list):
+            result.append(group)
+            continue
+        updated = []
+        matched = False
+        for existing in group["hooks"]:
+            if _is_generated_handler(existing, host, event, script):
+                matched = True
+                if not inserted:
+                    updated.append(handler)
+                    inserted = True
+            else:
+                updated.append(existing)
+        if updated or not matched:
+            result.append({"hooks": updated})
+    if not inserted:
+        result.append({"hooks": [handler]})
+    return result
+
 def integrate(project, host, state_dir, router_root):
     if host not in ("codex", "claude"):
         raise ValueError("host must be codex or claude")
@@ -49,15 +110,16 @@ def integrate(project, host, state_dir, router_root):
     folder = ".codex" if host == "codex" else ".claude"
     config_path = project / folder / ("hooks.json" if host == "codex" else "settings.json")
     skill_path = project / (".agents" if host == "codex" else ".claude") / "skills" / "skill-rover"
+    _reject_symlink_components(project, config_path)
+    _reject_symlink_components(project, skill_path.parent)
     if skill_path.exists() or skill_path.is_symlink():
         if not skill_path.is_symlink() or skill_path.resolve() != router_root:
             raise ValueError("an unrelated skill-rover installation already exists")
-    if config_path.is_symlink():
-        raise ValueError("refusing to rewrite a symlinked configuration")
     config = json.loads(config_path.read_text(encoding="utf-8")) if config_path.exists() else {}
     if not isinstance(config, dict) or not isinstance(config.get("hooks", {}), dict):
         raise ValueError("existing hook configuration is not an object")
-    args = [sys.executable, str(router_root / "scripts" / "rover.py"),
+    script = router_root / "scripts" / "rover.py"
+    args = [sys.executable, "-B", str(script),
             "--state-dir", str(Path(state_dir).absolute()), "hook"]
     hooks = config.setdefault("hooks", {})
     for event in EVENTS:
@@ -65,10 +127,7 @@ def integrate(project, host, state_dir, router_root):
         if not isinstance(groups, list):
             raise ValueError("hook event must be a list")
         handler = _handler(args, host, event)
-        present = any(any(h == handler for h in group.get("hooks", []))
-                      for group in groups if isinstance(group, dict))
-        if not present:
-            groups.append({"hooks": [handler]})
+        hooks[event] = _upsert_handler(groups, handler, host, event, script)
     skill_path.parent.mkdir(parents=True, exist_ok=True)
     created = False
     try:

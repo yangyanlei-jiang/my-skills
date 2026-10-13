@@ -13,9 +13,21 @@ The command uses its current Python executable in hook commands and installs sym
 
 Claude Code uses direct execution with an argument array, avoiding shell quoting differences. Codex uses a POSIX command plus a Windows PowerShell override. SessionEnd handlers use a three-second timeout to meet the Codex limit. The integration command defaults state to the target project's .skill-rover; other commands use the current directory unless --state-dir is supplied.
 
-It preserves unrelated JSON fields and hook groups, and repeated identical integration does not add duplicate handlers. It refuses to overwrite unrelated existing installations. If you move the clone or Python environment, inspect and remove the previous SkillRover hook entries before integrating the new path.
+It preserves unrelated JSON fields and hook groups. Re-running integration updates and deduplicates the exact generated handlers for the same router script, including after changing its Python interpreter or state directory. Customized handlers, filtered groups and commands pointing at a different clone remain untouched; inspect those separately when moving a clone. New Python commands use `-B` to avoid writing bytecode into the installation. It refuses unrelated existing installations and symlinked configuration/skill parents within the chosen project. An explicitly selected project-root alias is supported.
 
 Keep .skill-rover/ out of version control: it stores source locations, usage and evaluation evidence. The tool does not automatically change the target project's .gitignore; add that entry as appropriate.
+
+## Diagnose missing activation
+
+```bash
+.venv/bin/python scripts/rover.py doctor --project /absolute/project --host codex
+```
+
+Use `--host claude` for Claude Code. Like `integrate`, `doctor` defaults to the target project's `.skill-rover`; pass `--state-dir` before the subcommand for a custom state. Run it with the same interpreter and checkout used by integration.
+
+The command reads project configuration and the state snapshot without executing hooks, loading skills, completing reviews, retrying cleanup or creating state. It reports missing/outdated/duplicate generated hooks, mismatched paths, unreadable state, pending routing and overdue comparisons. Exit 1 means a diagnosed error; warnings alone return 0. No observations can mean hooks never ran; a pending route can mean the host has not recorded its decision. Neither proves that no native skill was used.
+
+`automatic_routing_verified` remains false: configuration and self-reported routing records do not prove model behavior. Host trust and effective user/admin settings must be checked in the host; other config layers can add or disable hooks. This diagnostic does not inspect credentials or change settings.
 
 ## Event contract
 
@@ -50,7 +62,7 @@ Managed candidates are loaded by returning their actual instructions through the
 
 SkillRover cannot remove text already sent to a model, wake a stopped host, grant permissions, or reliably infer that an arbitrary crashed session is finished. These are explicit host boundaries.
 
-References checked on 2026-10-08:
+Hook contracts rechecked on 2026-10-13; skill-format references originally checked on 2026-10-08:
 - https://learn.chatgpt.com/docs/build-skills
 - https://learn.chatgpt.com/docs/hooks
 - https://code.claude.com/docs/en/skills

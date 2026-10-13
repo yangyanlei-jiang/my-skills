@@ -4,7 +4,9 @@
 
 [中文](README.zh-CN.md) · [Lifecycle](references/lifecycle.md) · [Integration](references/integration.md) · [Evaluation](evals/README.md)
 
-This copy is maintained in the [my-skills collection](../../README.md), under `skills/skill-rover/`. The original standalone repository retains its historical releases. Use this directory for the setup below.
+**v0.3.0:** lifecycle fixes, safe hook updates and read-only `doctor` diagnostics. See the [audit](evals/audit-2026-10-13.md) and [release notes](CHANGELOG.md).
+
+This copy is maintained in the [my-skills collection](https://github.com/yangyanlei-jiang/my-skills), under `skills/skill-rover/`. The original standalone repository retains its historical releases. Use this directory for the setup below.
 
 SkillRover is an installable **Agent Skill that helps agents choose and use other skills**. It works with Codex and Claude Code: prefer installed capabilities, inspect external candidates when needed, load only relevant instructions, and verify the task's result.
 
@@ -85,8 +87,11 @@ Run `python scripts/rover.py --help`; every command emits JSON.
 | `replace OLD NEW --evidence FILE` | Apply a verified replacement |
 | `cleanup` | Retry retiring already superseded bundles |
 | `integrate --project DIR --host HOST` | Add project skill installation and native event hooks |
+| `doctor --project DIR --host codex\|claude` | Diagnose project hook configuration and recorded routing without changing state |
 
 Place `--state-dir PATH` **before** the command and use the same absolute path throughout a project. Never pipe external candidate content into a shell.
+
+If nothing appears to activate, run `doctor` with the same Python environment and target project used for integration. It distinguishes missing configuration, pending routing and overdue reviews. A passing local configuration check does not establish host trust or successful native activation. [Troubleshooting details](references/integration.md#diagnose-missing-activation).
 
 ## Development and validation
 

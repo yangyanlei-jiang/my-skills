@@ -12,6 +12,7 @@ import zipfile
 from pathlib import Path, PurePosixPath
 
 from .catalog import MAX_BUNDLE, MAX_FILES, bundle_digest, read_skill
+from . import __version__
 
 MAX_DOWNLOAD = 32 * 1024 * 1024
 
@@ -21,7 +22,7 @@ def validate_repository(repository):
     return repository
 
 def _download(url, authenticated=False, limit=MAX_DOWNLOAD):
-    headers = {"User-Agent": "SkillRover/0.1", "Accept": "application/vnd.github+json"}
+    headers = {"User-Agent": "SkillRover/" + __version__, "Accept": "application/vnd.github+json"}
     token = os.environ.get("GITHUB_TOKEN")
     if authenticated and token:
         headers["Authorization"] = "Bearer " + token

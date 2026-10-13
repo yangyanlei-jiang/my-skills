@@ -4,7 +4,9 @@
 
 [English](README.md) · [生命周期说明](references/lifecycle.md) · [平台接入](references/integration.md)
 
-此版本在 [my-skills 集合](../../README.md) 的 `skills/skill-rover/` 中统一维护。原独立仓库保留历史版本；下面的安装从集合内的技能目录开始。
+**v0.3.0** 修复加载计时和安装更新问题，新增只读诊断命令。详见 [可行性与设计审查](evals/audit-2026-10-13.md) 和 [版本说明](CHANGELOG.md)。
+
+此版本在 [my-skills 集合](https://github.com/yangyanlei-jiang/my-skills) 的 `skills/skill-rover/` 中统一维护。原独立仓库保留历史版本；下面的安装从集合内的技能目录开始。
 
 SkillRover 本身是一个可安装的 Agent Skill。智能体先比较已经安装的技能，缺少能力时再搜索 GitHub，读取候选技能的实际内容，选择必要的组合并验证任务结果。
 
@@ -59,10 +61,13 @@ python scripts/rover.py scan /你的技能目录
 python scripts/rover.py search "pdf table extraction"
 python scripts/rover.py --state-dir /你的项目/.skill-rover due
 python scripts/rover.py --state-dir /你的项目/.skill-rover status
+python scripts/rover.py doctor --project /你的项目 --host codex
 python scripts/rover.py --help
 ```
 
 完整使用步骤与替换证据格式见 [生命周期说明](references/lifecycle.md)。外部技能发现与检查流程见 [外部发现](references/discovery.md)。
+
+遇到“没有触发”时，使用安装时的 Python 环境运行 `doctor`。它只读检查项目 hook、状态路径、待完成路由和到期复评；Claude Code 使用 `--host claude`。有错误时退出码为 1，只有提醒时为 0。配置通过不等于宿主已信任 hook，也不证明模型完成了调用。它不会为了让状态好看而登记技能或重置复评时间。
 
 ## 验证
 
