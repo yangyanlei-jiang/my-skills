@@ -1,0 +1,4 @@
+interface:
+  display_name: "杨艳磊代码风格"
+  short_description: "基于个人提交习惯编写和审查 PHP 代码，保留项目架构与接口契约"
+  default_prompt: "使用 $yyl-code-style 按杨艳磊的代码风格完成修改，先核对当前项目的接口与分层契约。"
