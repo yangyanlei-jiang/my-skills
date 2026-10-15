@@ -100,7 +100,7 @@ class Catalog extends Business
 }
 ```
 
-保留调用方的排序和分页语义；需要排序稳定性时按已有规则加次级排序。若现有校验器已验证 page_size，复用它，不再制造第二套参数规范。Controller 在此模式中继续 `init(__METHOD__)` → `bootstrap(...)` → `jsonResponse(...)`；不改 VersionSelect 的公共实现。
+保留调用方的排序和分页语义；需要排序稳定性时按已有规则加次级排序。若现有校验器已验证 page_size，复用它，不再制造第二套参数规范。Controller 在此模式中继续 `init(__METHOD__)` → `bootstrap(...)` → `jsonResponse(...)`；该列表需求无须改动 VersionSelect 的公共实现。其他任务确需修改基类时，遵循技能入口中的基类改动规则。
 
 
 涉及可选降级、事务或幂等时，继续按需读取 [错误与副作用](side-effects.md)。
