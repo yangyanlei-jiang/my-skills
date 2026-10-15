@@ -9,7 +9,7 @@
 | [skill-rover](skills/skill-rover/SKILL.md) | 自动选择技能，并跟踪使用与定时复评 | v0.3.0：加载计时修复、接入更新与只读诊断 |
 | [feishu-docs](skills/feishu-docs/SKILL.md) | 先生成飞书兼容 Markdown，批量写入后仅补齐缺失的原生格式 | 可离线生成 `.md`；云端写入需要已授权的转换能力 |
 | [storysmith-longform](skills/storysmith-longform/SKILL.md) | 长篇原创构思、分卷章节、正文写作、伏笔连续性与收束 | 三部作品五维证据按需参考；模型样本统计仅作探索性支撑 |
-| [yyl-code-style](skills/yyl-code-style/SKILL.md) | 按杨艳磊的个人风格编写、重构和审查代码 | 来自本人 PHP/Lumen 提交样本；含风格边界、脱敏范例和检查清单 |
+| [yyl-code-style](skills/yyl-code-style/SKILL.md) | 按杨艳磊的个人风格编写、重构和审查代码 | 来自本人 PHP/Lumen 提交样本；精简核心规则，按需读取接口、错误与事务范例 |
 
 ## 使用方式
 
@@ -19,6 +19,8 @@ cd my-skills
 ```
 
 将需要的技能目录安装到智能体的技能目录。Codex 通常使用 `~/.codex/skills/<skill-name>`，Claude Code 可使用 `~/.claude/skills/<skill-name>`。保留完整目录中的 `SKILL.md`、`agents/` 和引用资源；安装后按宿主要求刷新技能列表。
+
+项目级安装：将完整技能目录复制到项目的 `.agents/skills/<skill-name>/`（Codex）或 `.claude/skills/<skill-name>/`（Claude Code）。例如将 `skills/yyl-code-style/` 复制为 `.agents/skills/yyl-code-style/`，即可在项目中请求：`使用 $yyl-code-style 完成这个接口，保留现有响应和版本兼容。` Codex 的发现目录及刷新方式见 [官方技能文档](https://learn.chatgpt.com/docs/build-skills)（核对于 2026-10-15）。
 
 也可以让支持技能安装的智能体从当前集合的指定技能目录安装。技能只是操作指引，账号连接、API 权限和浏览器登录需要由运行环境提供。
 
@@ -34,7 +36,7 @@ cd my-skills
 
 新增技能遵循 [AGENTS.md](AGENTS.md)，并更新此索引。SkillRover 的主维护目录为 `skills/skill-rover/`；[原独立仓库](https://github.com/yangyanlei-jiang/skill-rover) 保留历史版本。后续个人技能统一在本集合维护。
 
-验证记录见 [feishu-docs 评估](evals/feishu-docs/report.md)。SkillRover 检查可在 `skills/skill-rover/` 中运行：
+验证记录见 [feishu-docs 评估](evals/feishu-docs/report.md) 和 [yyl-code-style 评估](evals/yyl-code-style/report.md)。SkillRover 检查可在 `skills/skill-rover/` 中运行：
 
 ```sh
 python -m pip install -r requirements.txt

@@ -1,6 +1,22 @@
-# 脱敏 Few-shot 与模板
+# PHP/Lumen 接口与查询
 
-以下按本人提交中的结构重写为虚构的内容目录、推荐和发放业务。不是原项目代码的逐字复制，也不是可直接对生产数据库执行的完整功能。示例中的模型、表、状态和错误码须替换为项目真实定义。
+仅在目标采用相同基础设施时使用下列映射。下面的模板为虚构业务的抽象改写；所有名称、输入包装、状态和错误码须由当前项目确认。
+
+## 分层与调用契约
+
+- `Controller` 接收请求、进入已有版本分发并调用已有序列化入口。
+- `Services/Version/<Module>/_vXXXXXX` 保留版本继承、启停与参数传递，负责接口适配和错误映射。
+- `Services/Business/<Domain>` 编排业务；独立策略、格式化或存储职责再拆小类。
+- `Models` 沿用真实连接、读写规则、关系及 casts；`Caches` 封装键、过期和并发逻辑。新增配置按当前项目注册方式处理。
+- 已有 `Business::make()` / `SingletonResolvable` 时复用容器入口，不重复造静态实例数组；可替换依赖采用现有构造注入。用户状态不能随意进入跨请求单例，长驻进程使用本次明确上下文。
+
+先从实际调用链核对：入参是 `$inputs['input']` 还是直接 `$input`；校验在哪里发生；`logicTask`、`dataFormat`、`response` 是否被调用及各自输出。**不能因存在 `validate()` 或 `bootstrap()` 就假设校验自动执行。**
+
+样本常见 Version 返回 `[ 'data' => $data, 'code' => JSON_Code::SUCCESS, 'msg' => 'success' ]`，再由 Controller 调用 `jsonResponse`。仅在当前路径同样如此时沿用；现有其他外壳原样保留。核对加密、空值/空列表、状态码、字段类型和老客户端分支，不猜测元组或统一更名为 `message`。
+
+## 查询与输出
+
+使用真实 Model/scope、明确的 `select` 和既有应用/用户/地区/语言范围。批量 `whereIn`、`pluck`、`keyBy` 或必要预加载代替循环查询；join 保留字段别名和参数绑定。输出数组明确列字段，按契约转换类型；强转不代替入参校验。过滤/排序后核对列表索引，引用循环后 `unset($item)`。保持原排序、分页和重复项语义。
 
 ## A. Version 适配 + Business 批量读取
 
@@ -86,131 +102,5 @@ class Catalog extends Business
 
 保留调用方的排序和分页语义；需要排序稳定性时按已有规则加次级排序。若现有校验器已验证 page_size，复用它，不再制造第二套参数规范。Controller 在此模式中继续 `init(__METHOD__)` → `bootstrap(...)` → `jsonResponse(...)`；不改 VersionSelect 的公共实现。
 
-## B. 可选展示失败与关键写入失败
 
-依据：展示模块允许受控降级且保留结构化异常上下文；本人曾移除支付执行中 catch 后返回 false 的处理，让必要失败继续向上层传播。
-
-下例的 callable 是现有业务适配器；可选读取只捕获已定义的可用性异常。不要把它扩展成“所有异常均降级”的全局规则。
-
-```php
-<?php
-
-namespace App\Services\Business\Example;
-
-use Illuminate\Support\Facades\Log;
-use RuntimeException;
-use Throwable;
-
-class OptionalDataUnavailableException extends RuntimeException
-{
-}
-
-class Recommendation
-{
-    public function optionalList(callable $read, int $userId): array
-    {
-        try {
-            return $read($userId);
-        } catch (OptionalDataUnavailableException $exception) {
-            try {
-                Log::warning('recommendation cache unavailable', [
-                    'user_id'   => $userId,
-                    'exception' => get_class($exception),
-                ]);
-            } catch (Throwable $logException) {
-                // 可选展示的降级结果不依赖日志可用性。
-            }
-
-            return [];
-        }
-    }
-}
-
-class Settlement
-{
-    /** commit 必须在自身事务成功提交后才返回；异常交由调用方现有边界处理。 */
-    public function settle(callable $commit, int $paymentId): array
-    {
-        return $commit($paymentId);
-    }
-}
-```
-
-Settlement 的例子只表达错误边界，不是完整结算实现；不要用“已调用 commit”冒充真实事务提交。日志由现有异常处理层记录时，无需各层重复记录。
-
-## C. 同连接、锁后复查和幂等重放
-
-依据：复杂写入模块使用明确的连接、主库读取、用户锁和锁后幂等检查；重复请求返回已保存结果。
-
-假设：调用方已经完成鉴权；users 表含 id/app_id；reward_requests 已有 app_id/user_id/request_id 联合唯一约束和 fingerprint/result 字段。fingerprint 由当前业务的确定性参数规范化生成，不能直接 hash 未规范化的 request 全量数据。此示例不会创建 schema。
-
-```php
-<?php
-
-namespace App\Services\Business\Example;
-
-use Illuminate\Database\Connection;
-use InvalidArgumentException;
-use LogicException;
-use RuntimeException;
-
-class RewardGrant
-{
-    private Connection $write;
-
-    public function __construct(Connection $write)
-    {
-        $this->write = $write;
-    }
-
-    /** apply 只执行同一连接内的数据库写入，不发送外部通知。 */
-    public function grantOnce(int $appId, int $userId, string $requestId, string $fingerprint, callable $apply): array
-    {
-        if ($appId <= 0 || $userId <= 0 || $requestId === '' || $fingerprint === '') {
-            throw new InvalidArgumentException('发放参数不完整');
-        }
-
-        return $this->write->transaction(function () use ($appId, $userId, $requestId, $fingerprint, $apply) {
-            $user = $this->write->table('users')
-                ->where('app_id', $appId)
-                ->where('id', $userId)
-                ->lockForUpdate()
-                ->first();
-            if (!$user) {
-                throw new InvalidArgumentException('用户不存在');
-            }
-
-            $scope = [ 'app_id' => $appId, 'user_id' => $userId, 'request_id' => $requestId ];
-            // 锁后复查，不能依赖事务前的查询结果。
-            $existing = $this->write->table('reward_requests')->where($scope)->first();
-            if ($existing) {
-                if (!hash_equals((string)$existing->fingerprint, $fingerprint)) {
-                    throw new InvalidArgumentException('同一请求不能使用不同参数');
-                }
-                $result = json_decode($existing->result, true, 512, JSON_THROW_ON_ERROR);
-                if (!is_array($result)) {
-                    throw new RuntimeException('发放记录损坏');
-                }
-
-                return $result;
-            }
-
-            $result = $apply($this->write, $userId);
-            if (!is_array($result)) {
-                throw new LogicException('发放结果必须为数组');
-            }
-            $saved = $this->write->table('reward_requests')->insert($scope + [
-                'fingerprint' => $fingerprint,
-                'result'      => json_encode($result, JSON_THROW_ON_ERROR),
-            ]);
-            if (!$saved) {
-                throw new RuntimeException('发放记录写入失败');
-            }
-
-            return $result;
-        });
-    }
-}
-```
-
-锁和唯一约束须与所有写入方一致；不能仅靠这个片段防御绕过用户锁的其他服务。回调必须遵守上述同连接条件。事务重试、外部通知、队列和补偿沿用项目真实机制，不复制固定重试次数。
+涉及可选降级、事务或幂等时，继续按需读取 [错误与副作用](side-effects.md)。
